@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { getValue } from '../actions';
 
 // Import Components
-import Header from '../../components/weather/components/header';
+import WeatherMain from '../../components/weather/components/weatherMain';
 
 const mapStateToProps = ( state ) => ({
-    value: state.input.value
+    infos: state.weather.infos
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
@@ -18,10 +18,10 @@ const mapDispatchToProps = ( dispatch ) => ({
 })
 
 // Container
-const headerContainer = connect(
+const weatherMainContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Header);
+)(WeatherMain);
 
-export default headerContainer;
+export default weatherMainContainer;
 

@@ -1,10 +1,10 @@
-import { GET_VALUE } from './actionsTypes';
+import { GET_VALUE } from '../actionsTypes';
 
 const initialState = {
     value: ''
 };
 
-export const filter = ( state = initialState, action ) => {
+const input = ( state = initialState, action ) => {
 
     switch(action.type) {
         case GET_VALUE: {
@@ -19,4 +19,6 @@ export const filter = ( state = initialState, action ) => {
             return state
         }
     }
-}
+};
+
+export default input;
