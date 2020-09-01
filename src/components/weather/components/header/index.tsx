@@ -13,7 +13,7 @@ const Header = ({value, getValue}: headerProps) => {
     }
 
     return (
-        <header className="w-full h-15 p-4 flex justify-center items-center bg-purple-900">
+        <header className="w-full h-12 p-4 flex justify-center items-center bg-purple-900">
             <input type="text" className="mr-4" value={value} onChange={handleChange}/>
             <FaSearch className="h-full text-white cursor-pointer" />
         </header>
