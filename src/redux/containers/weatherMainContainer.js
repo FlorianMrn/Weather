@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // Import Actions
-import { getValue } from '../actions';
+import { getJson } from '../actions';
 
 // Import Components
 import WeatherMain from '../../components/weather/components/weatherMain';
@@ -11,8 +11,8 @@ const mapStateToProps = ( state ) => ({
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
-    getValue : (value) => {
-        const action = getValue(value);
+    getJson : (infos) => {
+        const action = getJson(infos);
         dispatch(action)
     }
 })
