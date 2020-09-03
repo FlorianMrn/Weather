@@ -6,7 +6,7 @@ const weatherMiddleware = store => next => action => {
     console.log("Middleware ok");
     switch (action.type) {
         case GET_JSON:
-            axios.post('url')
+            axios.get('url')
                 .then((res) => {
 
                 })

@@ -15,7 +15,7 @@ const mapDispatchToProps = ( dispatch ) => ({
         const action = getJson(infos);
         dispatch(action)
     }
-})
+});
 
 // Container
 const weatherMainContainer = connect(

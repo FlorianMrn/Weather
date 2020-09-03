@@ -1,4 +1,4 @@
-import { GET_VALUE, GET_JSON } from "./actionsTypes";
+import { GET_VALUE, GET_JSON, GET_PHOTO } from "./actionsTypes";
 
 export const getValue = (value) => (
     {
@@ -13,3 +13,10 @@ export const getJson = (infos) => (
         infos
     }
 );
+
+export const getPhoto = (photo) => (
+    {
+        type : GET_PHOTO,
+        photo
+    }
+)
