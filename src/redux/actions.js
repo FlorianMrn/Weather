@@ -1,4 +1,4 @@
-import { GET_VALUE, GET_JSON, GET_PHOTO } from "./actionsTypes";
+import { GET_VALUE, GET_JSON, GET_PHOTO, SEND_REQUEST } from "./actionsTypes";
 
 export const getValue = (value) => (
     {
@@ -19,4 +19,10 @@ export const getPhoto = (photo) => (
         type : GET_PHOTO,
         photo
     }
-)
+);
+
+export const sendRequest = () => (
+    {
+        type : SEND_REQUEST
+    }
+);
