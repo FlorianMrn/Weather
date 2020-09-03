@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // Import Actions
-import { getValue, getJson, sendRequest} from '../actions';
+import { getValue, sendRequest} from '../actions';
 
 // Import Components
 import Header from '../../components/weather/components/header';
@@ -13,15 +13,11 @@ const mapStateToProps = ( state ) => ({
 const mapDispatchToProps = ( dispatch ) => ({
     getValue : (value) => {
         const action = getValue(value);
-        dispatch(action)
-    },
-    getJson : (infos) => {
-        const action = getJson(infos);
-        dispatch(action)
+        dispatch(action);
     },
     sendRequest : () => {
         const action = sendRequest();
-        dispatch(action)
+        dispatch(action);
     }
 })
 

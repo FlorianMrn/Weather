@@ -3,7 +3,7 @@ import { WiHumidity, WiStrongWind, WiRain } from "react-icons/wi";
 
 const WeatherMain = ({ infos }) => {
 
-    console.log(infos.default.list[0].pop);
+    console.log("ok", infos);
 
     return (
         <main className="w-full h-calc relative flex flex-col justify-around align-center text-white">
