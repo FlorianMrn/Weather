@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaSearch } from "react-icons/fa";
-import { sendRequestOpen } from '../../../../redux/actions';
 
 type headerProps = {
     value: string,
     getValue: Function,
-    sendRequestPixa: Function
+    sendRequestPixa: Function,
+    sendRequestOpen: Function
 }
 
-const Header = ({value, getValue, sendRequestPixa}: headerProps) => {
+const Header = ({value, getValue, sendRequestPixa, sendRequestOpen}: headerProps) => {
 
     const handleChange = (e: any) => {
        getValue(e.target.value);
@@ -16,7 +16,8 @@ const Header = ({value, getValue, sendRequestPixa}: headerProps) => {
 
     const handleSubmit = () => {
         return (
-            sendRequestPixa()
+            sendRequestPixa(),
+            sendRequestOpen()
         )
     }
 
