@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaSearch } from "react-icons/fa";
+import { sendRequestOpen } from '../../../../redux/actions';
 
 type headerProps = {
     value: string,
