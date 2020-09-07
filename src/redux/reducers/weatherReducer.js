@@ -5,7 +5,7 @@ import * as test from '../../assets/json/test.json';
 
 const initialState = {
     infos: test,
-    photo : 'https://pixabay.com/get/52e0dc464d55a914f6da8c7dda793676143ad6e551576c48702672d5954bc250b0_1280.jpg'
+    photo : 'https://metropole.nantes.fr/files/images/vie-institutions/villes/nantes-vue-aerienne-1920.jpg'
 };
 
 const weather = ( state = initialState, action ) => {

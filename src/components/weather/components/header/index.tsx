@@ -4,10 +4,10 @@ import { FaSearch } from "react-icons/fa";
 type headerProps = {
     value: string,
     getValue: Function,
-    sendRequest: Function
+    sendRequestPixa: Function
 }
 
-const Header = ({value, getValue, sendRequest}: headerProps) => {
+const Header = ({value, getValue, sendRequestPixa}: headerProps) => {
 
     const handleChange = (e: any) => {
        getValue(e.target.value);
@@ -15,7 +15,7 @@ const Header = ({value, getValue, sendRequest}: headerProps) => {
 
     const handleSubmit = () => {
         return (
-            sendRequest()
+            sendRequestPixa()
         )
     }
 

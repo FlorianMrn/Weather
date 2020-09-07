@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_JSON, SEND_REQUEST} from '../actionsTypes';
+import { GET_JSON, SEND_REQUEST_PIXA, SEND_REQUEST_OPEN} from '../actionsTypes';
 import { getPhoto, getJson } from '../actions';
 
 const weatherMiddleware = store => next => action => {
@@ -17,7 +17,7 @@ const weatherMiddleware = store => next => action => {
 
                 });
             break;
-        case SEND_REQUEST:
+        case SEND_REQUEST_PIXA:
             const state = store.getState();
             
             axios.all([
@@ -27,7 +27,7 @@ const weatherMiddleware = store => next => action => {
                 .then( (res) => {
                     console.log(res);
                     store.dispatch(getPhoto(res[0].data.hits.length > 0 ? res[0].data.hits[0].largeImageURL : "https://hdwallpaperim.com/wp-content/uploads/2017/08/24/98616-minimalism-404_Not_Found-748x421.jpg"));
-                    store.dispatch(getJson(res[1]))
+                    store.dispatch(getJson(res[1]));
                 })
                 .catch( (err) => {
                     console.error(err);
