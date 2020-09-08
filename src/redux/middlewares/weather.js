@@ -31,6 +31,7 @@ const weatherMiddleware = store => next => action => {
                 .then( (res) => {
                     console.log(res.data);
                     store.dispatch(getJson(res.data));
+                    console.log(res.data);
                 })
                 .catch( (err) => {
                     console.error("OPEN", err);

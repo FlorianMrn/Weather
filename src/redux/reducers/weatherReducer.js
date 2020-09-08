@@ -1,7 +1,7 @@
 import { GET_JSON, GET_PHOTO } from '../actionsTypes';
 
 // Local Import
-import * as test from '../../assets/json/test.json';
+import test from '../../assets/json/test.json';
 
 const initialState = {
     infos: test,
