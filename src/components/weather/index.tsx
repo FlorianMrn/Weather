@@ -8,6 +8,7 @@ import {
 import HeaderContainer from '../../redux/containers/headerContainer';
 import WeatherContainer from '../../redux/containers/weatherMainContainer';
 import WeatherNav from '../../components/weather/components/weatherNav';
+import ForecastMain from '../../components/weather/components/forecastMain';
 
 const Weather = ({photo}:any) => {
 
@@ -16,7 +17,10 @@ const Weather = ({photo}:any) => {
             <HeaderContainer />
                 <Switch>
                     <Route exact path="/">
-                        <WeatherContainer/>
+                        <WeatherContainer />
+                    </Route>
+                    <Route exact path="/prévisions">
+                        <ForecastMain />
                     </Route>
                 </Switch>
             <WeatherNav />
