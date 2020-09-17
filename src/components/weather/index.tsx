@@ -15,7 +15,7 @@ const Weather = ({photo, sendRequestOpen, sendRequestPixa}:any) => {
     useEffect(() => {
         sendRequestOpen();
         sendRequestPixa();
-    }, []);
+    }, [sendRequestOpen, sendRequestPixa]);
 
     return (
         <div className ="max-w-screen-lg h-screen m-auto relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${photo})`}}>

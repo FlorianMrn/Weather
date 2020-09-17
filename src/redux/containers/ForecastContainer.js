@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 
 // Import Actions
-import { getJson, getPhoto } from '../actions';
 
 // Import Components
 import ForecastMain from '../../components/weather/components/forecastMain';
