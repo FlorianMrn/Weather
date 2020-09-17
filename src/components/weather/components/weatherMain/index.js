@@ -9,7 +9,7 @@ const WeatherMain = ({ infos }) => {
                 <div className="w-auto h-auto h-auto text-6xl relative text-center">{Math.trunc(infos.list[0].main.temp)}°</div>
                 <img src={`http://openweathermap.org/img/wn/${infos.list[0].weather[0].icon}@2x.png`} alt="weather"/>
             </div>
-            <div className="w-full h-6 relative flex justify-around text-3xl">
+            <div className="w-full h-6 relative flex justify-around text-3xl font-bold">
                 <div className="flex w-auto h-auto flex-col justify-center align-center">
                     <p className="flex justify-center"><WiRain /></p>
                     <p className="text-xl">{infos.list[0].pop} %</p>

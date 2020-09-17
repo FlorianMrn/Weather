@@ -27,7 +27,7 @@ const weatherMiddleware = store => next => action => {
 
             const OPEN_KEY = process.env.REACT_APP_OPEN;
 
-            axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${input}&appid=${OPEN_KEY}&units=metric&SameSite=None`)
+            axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${input}&appid=${OPEN_KEY}&units=metric&SameSite=None&lang=fr`)
                 .then( (res) => {
                     console.log(res.data);
                     store.dispatch(getJson(res.data));
