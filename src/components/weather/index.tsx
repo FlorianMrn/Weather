@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     Switch,
     Route
@@ -10,7 +10,12 @@ import WeatherContainer from '../../redux/containers/weatherMainContainer';
 import WeatherNav from '../../components/weather/components/weatherNav';
 import ForecastMain from '../../components/weather/components/forecastMain';
 
-const Weather = ({photo}:any) => {
+const Weather = ({photo, sendRequestOpen, sendRequestPixa}:any) => {
+
+    useEffect(() => {
+        sendRequestOpen();
+        sendRequestPixa();
+    }, []);
 
     return (
         <div className ="max-w-screen-lg h-screen m-auto relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${photo})`}}>

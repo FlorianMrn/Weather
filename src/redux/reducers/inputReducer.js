@@ -1,7 +1,7 @@
 import { GET_VALUE } from '../actionsTypes';
 
 const initialState = {
-    value: ''
+    value: 'Nantes'
 };
 
 const input = ( state = initialState, action ) => {

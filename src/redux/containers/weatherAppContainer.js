@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // Import actions
-import { getPhoto } from '../actions';
+import { sendRequestOpen, sendRequestPixa } from '../actions';
 
 // Import Local
 import weatherApp from '../../components/weather';
@@ -11,9 +11,13 @@ const mapStateToProps = ( state ) => ({
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
-    getPhoto : (photo) => {
-        const action = getPhoto(photo);
-        dispatch(action)
+    sendRequestOpen : () => {
+        const action = sendRequestOpen();
+        dispatch(action);
+    },
+    sendRequestPixa : () => {
+        const action = sendRequestPixa();
+        dispatch(action);
     }
 });
 
