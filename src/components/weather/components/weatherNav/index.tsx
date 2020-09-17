@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const WeatherNav = () => {
 
     return (
-        <nav className="w-full h-12 bg-white z-1 bottom-0 flex justify-around absolute box-border">
+        <nav className="w-full h-12 bg-white z-1 bottom-0 flex justify-around absolute box-border bg-gray-100">
             <div className="relative flex justify-center flex-col items-center cursor-pointer box-border">
                 <Link to="/" className="relative flex justify-center flex-col items-center cursor-pointer box-border">
                     <WiDaySunny />
