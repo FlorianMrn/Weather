@@ -10,7 +10,10 @@ import WeatherContainer from '../../redux/containers/weatherMainContainer';
 import WeatherNav from '../../components/weather/components/weatherNav';
 import ForecastContainer from '../../redux/containers/ForecastContainer';
 
-const Weather = ({photo, sendRequestOpen, sendRequestPixa}:any) => {
+// Asset
+import spinner from '../../assets/images/spinner.png';
+
+const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading}:any) => {
 
     useEffect(() => {
         sendRequestOpen();
@@ -18,7 +21,9 @@ const Weather = ({photo, sendRequestOpen, sendRequestPixa}:any) => {
     }, [sendRequestOpen, sendRequestPixa]);
 
     return (
-        <div className ="max-w-screen-lg h-screen m-auto relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${photo})`}}>
+        <>
+        {!isLoading ?
+        <div className ="max-w-screen-lg h-screen m-auto relative bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: `url(${photo})`}}>
             <HeaderContainer />
                 <Switch>
                     <Route exact path="/">
@@ -31,6 +36,10 @@ const Weather = ({photo, sendRequestOpen, sendRequestPixa}:any) => {
             <WeatherNav />
             <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE}&libraries=places`}></script>
         </div>
+        :   <div className="flex justify-center items-center max-w-screen-lg h-screen m-auto">
+                <img src={spinner} alt="spinner" className="animate-spin"/>
+            </div>}
+        </>
     )
 };
 

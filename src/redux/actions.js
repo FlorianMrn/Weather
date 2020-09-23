@@ -1,4 +1,4 @@
-import { GET_VALUE, GET_JSON, GET_PHOTO, SEND_REQUEST_PIXA, SEND_REQUEST_OPEN} from "./actionsTypes";
+import { GET_VALUE, GET_JSON, GET_PHOTO, SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, LOADING} from "./actionsTypes";
 
 export const getValue = (value) => (
     {
@@ -32,3 +32,9 @@ export const sendRequestOpen = () => (
         type : SEND_REQUEST_OPEN
     }
 );
+
+export const loading = () => (
+    {
+        type : LOADING
+    }
+)

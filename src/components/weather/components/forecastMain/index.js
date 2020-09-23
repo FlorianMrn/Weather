@@ -19,7 +19,7 @@ const ForecastMain = ({ infos }) => {
                             <div className="flex flex-col text-center" key={next.dt}>
                                 <p>{Math.trunc(next.main.temp)}°</p>
                                 <img src={`http://openweathermap.org/img/wn/${next.weather[0].icon}@2x.png`} alt="weather" className="object-cover"/>
-                                <p>{next.dt_txt.slice(10).split(':').slice(0, 2).join(':')}</p>
+                                <p className="italic">{next.dt_txt.slice(10).split(':').slice(0, 2).join(':')}</p>
                             </div>
                         )
                     })}
@@ -29,16 +29,16 @@ const ForecastMain = ({ infos }) => {
                     {nextDaysData.map((next) => {
                         return (
                             <div className="w-full h-20 my-2 flex justify-between border-b-2 pb-2" key={next.dt}>
-                                <div className ="flex flex-col font-bold">
-                                    <p>{next.dt_txt.slice(0, 10).split('-').reverse().join('-')}</p>
-                                    <p>{next.dt_txt.slice(10).split(':').slice(0, 2).join(':')}</p>
+                                <div className ="flex flex-col justify-center items-center">
+                                    <p className="font-bold">{next.dt_txt.slice(0, 10).split('-').reverse().join('-')}</p>
+                                    <p className="italic">{next.dt_txt.slice(10).split(':').slice(0, 2).join(':')}</p>
                                 </div>
                                 <div className="box-border h-12 w-48 flex justify-center items-center">
                                     <img src={`http://openweathermap.org/img/wn/${next.weather[0].icon}@2x.png`} alt="weather" className="h12 w-12"/>
                                     <p>{next.weather[0].description}</p>
                                 </div>
-                                <p className="font-bold">{Math.trunc(next.main.temp_max)}° max</p>
-                                <p>{Math.trunc(next.main.feels_like)}° ressentis</p>
+                                <p className="font-bold flex justify-center items-center">{Math.trunc(next.main.temp_max)}° max</p>
+                                <p className="flex justify-center items-center">{Math.trunc(next.main.feels_like)}° ressentis</p>
                             </div>
                         )
                     })}

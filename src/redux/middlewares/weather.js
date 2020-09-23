@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN} from '../actionsTypes';
-import { getPhoto, getJson } from '../actions';
+import { getPhoto, getJson, loading } from '../actions';
 
 const weatherMiddleware = store => next => action => {
     const state = store.getState();
@@ -15,6 +15,7 @@ const weatherMiddleware = store => next => action => {
             axios.get(`https://pixabay.com/api/?key=${PIXA_KEY}&q=${input}&image_type=photo&lang=fr&per_page=3&SameSite=None`)
                 .then( (res) => {
                     store.dispatch(getPhoto(res.data.hits.length > 0 ? res.data.hits[0].largeImageURL : "https://hdwallpaperim.com/wp-content/uploads/2017/08/24/98616-minimalism-404_Not_Found-748x421.jpg"));
+                    store.dispatch(loading)
                 })
                 .catch( (err) => {
                     console.error("PIXA", err);

@@ -1,11 +1,12 @@
-import { GET_JSON, GET_PHOTO } from '../actionsTypes';
+import { GET_JSON, GET_PHOTO, LOADING } from '../actionsTypes';
 
 // Local Import
 import test from '../../assets/json/test.json';
 
 const initialState = {
     infos: test,
-    photo : 'https://metropole.nantes.fr/files/images/vie-institutions/villes/nantes-vue-aerienne-1920.jpg'
+    photo : 'https://metropole.nantes.fr/files/images/vie-institutions/villes/nantes-vue-aerienne-1920.jpg',
+    isLoading : false
 };
 
 const weather = ( state = initialState, action ) => {
@@ -24,6 +25,14 @@ const weather = ( state = initialState, action ) => {
                 {
                 ...state,
                 photo : action.photo
+                }
+            )
+        }
+        case LOADING : {
+            return (
+                {
+                        ...state,
+                        isLoading : !state.isLoading ? true : false
                 }
             )
         }
