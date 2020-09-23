@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // Import Actions
-import { getValue, sendRequestPixa, sendRequestOpen} from '../actions';
+import { getValue, sendRequestPixa, sendRequestOpen, loading} from '../actions';
 
 // Import Components
 import Header from '../../components/weather/components/header';
@@ -21,6 +21,10 @@ const mapDispatchToProps = ( dispatch ) => ({
     },
     sendRequestOpen : () => {
         const action = sendRequestOpen();
+        dispatch(action);
+    },
+    loading : () => {
+        const action = loading();
         dispatch(action);
     }
 })

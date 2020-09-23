@@ -23,7 +23,8 @@ const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading}:any) => {
     return (
         <>
         {!isLoading ?
-        <div className ="max-w-screen-lg h-screen m-auto relative bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: `url(${photo})`}}>
+        <div className ="max-w-screen-lg h-screen m-auto relative bg-cover bg-center bg-no-repeat relative z-10">
+            <img src={photo} alt="batiment" className="z-0 absolute min-w-full min-h-full"/>
             <HeaderContainer />
                 <Switch>
                     <Route exact path="/">
