@@ -10,9 +10,6 @@ import WeatherContainer from '../../redux/containers/weatherMainContainer';
 import WeatherNav from '../../components/weather/components/weatherNav';
 import ForecastContainer from '../../redux/containers/ForecastContainer';
 
-// Asset
-import spinner from '../../assets/images/spinner.png';
-
 const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading}:any) => {
 
     useEffect(() => {
@@ -38,7 +35,7 @@ const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading}:any) => {
             <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE}&libraries=places`}></script>
         </div>
         :   <div className="flex justify-center items-center max-w-screen-lg h-screen m-auto">
-                <img src={spinner} alt="spinner" className="animate-spin"/>
+                <div className="animate-spin w-32 h-32 rounded-full bg-gradient-to-r from-orange-400 via-red-500 to-pink-500"/>
             </div>}
         </>
     )
