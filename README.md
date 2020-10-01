@@ -9,4 +9,4 @@ Dans cette application, j'ai utilisé deux API différentes :
 
 Pour ce qui est du design, je me suis basé sur une proposition d'un designer sur DRIBBLE (https://dribbble.com/shots/6498418-Android-Weather-App-concept)
 
-Si après lecture, vous avez des questions ou suggestions, je suis preneur !
+Si après "lecture", vous avez des questions ou suggestions, je suis preneur !
