@@ -645,6 +645,7 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      scale: 'scale 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
     },
     keyframes: {
       spin: {
@@ -666,6 +667,20 @@ module.exports = {
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
         },
       },
+      scale: {
+        '0%' : {
+          transform: 'scaleX(0)',
+          transformOrigin: '0% 0%',
+          opacity: '1',
+          width: '0',
+        },
+        '100%' : {
+          transform: 'scaleX(1)',
+          transformOrigin: '0% 50%',
+          opacity: '1',
+          width: '100%',
+        }
+      }
     },
   },
   variants: {

@@ -31,7 +31,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading}: he
         <header className="w-3/5 h-12 p-4 flex justify-between items-center relative z-10">
             <Nav />
             <form onSubmit={handleSubmit} className="w-auto h-12 p-4 flex justify-center items-center" >
-                <input type="text" className="mr-4" value={value} onChange={handleChange} />
+                <input type="text" className="mr-4 focus:bg-orange-600 outline-none rounded" value={value} onChange={handleChange} />
                 <FaSearch className="h-full text-white cursor-pointer" onClick={handleSubmit}/>
             </form>
         </header>
