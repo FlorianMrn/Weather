@@ -30,7 +30,7 @@ export const Register = () => {
                 setPassword(value);
                 error =
                 (value.length < 7) || (!regex.test(value))
-                ? 'Password must be 8 characters, contains one uppercase and one number'
+                ? 'Password must contain at least 8 characters, one uppercase and one number'
                 : '';
                 break;
 
