@@ -14,12 +14,12 @@ export const Login = () => {
     }
 
     return (
-        <article>
+        <article className="w-full">
             <form className="flex flex-col">
                 <label htmlFor="username">Username</label>
-                <input type="text" name="username" required autoComplete="off" onChange={handleChange} value={username} className="mb-4"/>
+                <input type="text" name="username" required autoComplete="off" onChange={handleChange} value={username} className="mb-4 bg-gray-400"/>
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" onChange={handleChange} value={password} className="mb-4"/>
+                <input type="password" name="password" onChange={handleChange} value={password} className="mb-4 bg-gray-400"/>
                 <button className="rounded p-1 text-white bg-black">Valider</button>
             </form>
         </article>

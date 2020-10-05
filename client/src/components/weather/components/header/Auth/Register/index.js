@@ -14,13 +14,13 @@ export const Register = () => {
     const handleChange = (e) => {
 
         const { name, value } = e.target;
-        const regex = RegExp(/([A-Z0-9a-z])\w+/g);
+        const regex = RegExp(/^(?:[0-9]+[a-z]|[a-z]+[0-9])[a-z0-9]*$/i);
 
         switch (name) {
             case 'username':
                 setUsername(value);
                 errors.username = 
-                    value.length < 3 
+                    value.length < 3
                     ? 'Username must be 3 characters'
                     : '';
                 break;
@@ -28,7 +28,7 @@ export const Register = () => {
             case 'password':
                 setPassword(value);
                 errors.password =
-                value.length < 8 || !regex.test(value) 
+                (password.length < 7) || (!regex.test(password))
                 ? 'Password must be 8 characters, contains one uppercase and one number'
                 : '';
                 break;
@@ -59,18 +59,18 @@ export const Register = () => {
     }
 
     return (
-        <article>
-            <form onSubmit={handleSubmit} noValidate>
+        <article className="w-full">
+            <form onSubmit={handleSubmit} noValidate className="flex flex-col">
                 <label htmlFor="username">Username</label>
-                <input type="text" name="username" required autoComplete="off" onChange={handleChange} value={username}/>
-                {errors.username.length > 0 &&  <span className='error'>{errors.username}</span>}
+                <input type="text" name="username" required autoComplete="off" onChange={handleChange} value={username} className="mb-4 bg-gray-400"/>
+                {errors.username.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.username}</span>}
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" onChange={handleChange} value={password}/>
-                {errors.password.length > 0 &&  <span className='error'>{errors.password}</span>}
+                <input type="password" name="password" onChange={handleChange} value={password} className="mb-4 bg-gray-400"/>
+                {errors.password.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password}</span>}
                 <label htmlFor="password2">Confirm password</label>
-                <input type="password" name="password2" onChange={handleChange} value={password2}/>
-                {errors.password2.length > 0 &&  <span className='error'>{errors.password2}</span>}
-                <button>Valider</button>
+                <input type="password" name="password2" onChange={handleChange} value={password2} className="mb-4 bg-gray-400"/>
+                {errors.password2.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password2}</span>}
+                <button className="rounded p-1 text-white bg-black">Valider</button>
             </form>
         </article>
     );
