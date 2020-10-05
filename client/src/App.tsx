@@ -6,7 +6,7 @@ import Weather from "../src/redux/containers/weatherAppContainer";
 
 function App() {
   return (
-    <div className="App" >
+    <div className="font-mono" >
       <Weather />
     </div>
   );

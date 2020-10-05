@@ -64,7 +64,7 @@ export const Register = () => {
     }
 
     return (
-        <article className="w-full">
+        <article className="w-full animate-scale">
             <form onSubmit={handleSubmit} noValidate className="flex flex-col">
                 <label htmlFor="username">Username</label>
                 <input type="text" name="username" required autoComplete="off" pattern="[A-Za-z]{3}" onChange={handleChange} value={username} className="mb-4 bg-gray-400"/>
@@ -75,7 +75,7 @@ export const Register = () => {
                 <label htmlFor="password2">Confirm password</label>
                 <input type="password" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password2} className="mb-4 bg-gray-400"/>
                 {errors.password2.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password2}</span>}
-                <button className="rounded p-1 text-white bg-black">Valider</button>
+                <button className="rounded p-1 text-white bg-black hover:bg-orange-600">Valider</button>
             </form>
         </article>
     );
