@@ -15,11 +15,12 @@ export const Register = () => {
 
         const { name, value } = e.target;
         const regex = RegExp(/^(?:[0-9]+[a-z]|[a-z]+[0-9])[a-z0-9]*$/i);
+        let error = null;
 
         switch (name) {
             case 'username':
                 setUsername(value);
-                errors.username = 
+                error = 
                     value.length < 3
                     ? 'Username must be 3 characters'
                     : '';
@@ -27,22 +28,26 @@ export const Register = () => {
 
             case 'password':
                 setPassword(value);
-                errors.password =
-                (password.length < 7) || (!regex.test(password))
+                error =
+                (value.length < 7) || (!regex.test(value))
                 ? 'Password must be 8 characters, contains one uppercase and one number'
                 : '';
                 break;
 
             case 'password2':
                 setPassword2(value);
-                errors.password2 =
+                error =
                 value !== password
                 ? 'Passwords must match'
                 : '';
                 break;
+                
             default :
                 break;
-        }
+        };
+
+        setErrors({...errors, [name]: error});
+
     };
 
     const handleSubmit = (e) => {
