@@ -10,7 +10,7 @@ import WeatherContainer from '../../redux/containers/weatherMainContainer';
 import WeatherNav from '../../components/weather/components/weatherNav';
 import ForecastContainer from '../../redux/containers/ForecastContainer';
 
-const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading}:any) => {
+const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading }:any) => {
 
     useEffect(() => {
         sendRequestOpen();

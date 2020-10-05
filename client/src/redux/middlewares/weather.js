@@ -20,7 +20,7 @@ const weatherMiddleware = store => next => action => {
                     console.error("PIXA", err);
                 })
                 .finally(() => {
-
+                    store.dispatch(loading());
                 });
                 break;
         case SEND_REQUEST_OPEN:
@@ -30,7 +30,6 @@ const weatherMiddleware = store => next => action => {
             axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${input}&appid=${OPEN_KEY}&units=metric&SameSite=None&lang=fr`)
                 .then( (res) => {
                     store.dispatch(getJson(res.data));
-                    store.dispatch(loading());
                 })
                 .catch( (err) => {
                     console.error("OPEN", err);
