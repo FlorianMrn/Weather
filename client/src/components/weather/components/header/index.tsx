@@ -2,7 +2,7 @@ import React from 'react';
 import { FaSearch } from "react-icons/fa";
 
 // Components
-import { Nav } from './Nav';
+import { Burger } from './Burger';
 
 type headerProps = {
     value: string,
@@ -29,7 +29,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading}: he
 
     return (
         <header className="w-3/5 h-12 p-4 flex justify-between items-center relative z-10">
-            <Nav />
+            <Burger />
             <form onSubmit={handleSubmit} className="w-auto h-12 p-4 flex justify-center items-center" >
                 <input type="text" className="mr-4 focus:bg-orange-600 outline-none rounded" value={value} onChange={handleChange} />
                 <FaSearch className="h-full text-white cursor-pointer" onClick={handleSubmit}/>

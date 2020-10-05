@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
-export const Nav = () => {
+// Component
+import { Nav } from '../Auth/Nav';
+
+export const Burger = () => {
 
     const [display, setDisplay] = useState(false);
 
@@ -11,7 +14,11 @@ export const Nav = () => {
                 <span className="w-8 h-1 bg-orange-600 rounded"></span>
                 <span className="w-8 h-1 bg-orange-600 rounded"></span>
             </nav>
-            {display && <div className="z-1 absolute h-screen left-0 top-0 bg-white animate-scale"></div> }
+            {display && 
+            <div className="z-1 absolute h-screen left-0 top-0 bg-white animate-scale p-4">
+                <Nav />
+            </div> 
+            }
         </>
     )
 };
