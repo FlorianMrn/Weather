@@ -14,7 +14,7 @@ export const Register = () => {
     const handleChange = (e) => {
 
         const { name, value } = e.target;
-        const regex = RegExp(/^(?:[0-9]+[a-z]|[a-z]+[0-9])[a-z0-9]*$/i);
+        const regex = RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/i);
         let error = null;
 
         switch (name) {
@@ -37,7 +37,7 @@ export const Register = () => {
             case 'password2':
                 setPassword2(value);
                 error =
-                value !== password
+                value !== password || (!regex.test(value))
                 ? 'Passwords must match'
                 : '';
                 break;
@@ -67,13 +67,13 @@ export const Register = () => {
         <article className="w-full">
             <form onSubmit={handleSubmit} noValidate className="flex flex-col">
                 <label htmlFor="username">Username</label>
-                <input type="text" name="username" required autoComplete="off" onChange={handleChange} value={username} className="mb-4 bg-gray-400"/>
+                <input type="text" name="username" required autoComplete="off" pattern="[A-Za-z]{3}" onChange={handleChange} value={username} className="mb-4 bg-gray-400"/>
                 {errors.username.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.username}</span>}
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" onChange={handleChange} value={password} className="mb-4 bg-gray-400"/>
+                <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password} className="mb-4 bg-gray-400"/>
                 {errors.password.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password}</span>}
                 <label htmlFor="password2">Confirm password</label>
-                <input type="password" name="password2" onChange={handleChange} value={password2} className="mb-4 bg-gray-400"/>
+                <input type="password" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password2} className="mb-4 bg-gray-400"/>
                 {errors.password2.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password2}</span>}
                 <button className="rounded p-1 text-white bg-black">Valider</button>
             </form>
