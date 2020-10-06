@@ -14,7 +14,7 @@ const WeatherNav = () => {
             <div className="relative flex justify-center flex-col items-center cursor-pointer box-border">
                 <NavLink exact to="/" className="relative flex justify-center flex-col items-center cursor-pointer box-border" activeStyle={active}>
                     <WiDaySunny />
-                    <div className="text-black">Méteo</div>
+                    <div className="text-black">Météo</div>
                 </NavLink>
             </div>
             <div className="relative flex justify-center flex-col items-center cursor-pointer box-border">

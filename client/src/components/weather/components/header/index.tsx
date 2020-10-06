@@ -34,7 +34,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading}: he
     };
 
     return (
-        <header className="w-3/5 h-12 p-4 flex justify-between items-center relative z-10">
+        <header className="w-3/4 lg:w-2/4 h-12 p-4 flex justify-between items-center relative z-10">
             <Burger />
             <form onSubmit={handleSubmit} className="w-auto h-12 p-4 flex justify-center items-center" >
                 <input type="text" className="mr-4 focus:bg-orange-600 outline-none rounded" value={value} onChange={handleChange} />

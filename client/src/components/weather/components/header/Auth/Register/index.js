@@ -21,7 +21,7 @@ export const Register = () => {
             case 'username':
                 setUsername(value);
                 error = 
-                    value.length < 3
+                    value.length < 3 || value === ""
                     ? 'Username must be 3 characters'
                     : '';
                 break;
@@ -29,8 +29,8 @@ export const Register = () => {
             case 'password':
                 setPassword(value);
                 error =
-                (value.length < 7) || (!regex.test(value))
-                ? 'Password must contain at least 8 characters, one uppercase and one number'
+                (!regex.test(value))
+                ? '8 caractères minimum, avec au moins une majuscule et un chiffre'
                 : '';
                 break;
 
@@ -38,7 +38,7 @@ export const Register = () => {
                 setPassword2(value);
                 error =
                 value !== password || (!regex.test(value))
-                ? 'Passwords must match'
+                ? 'Les mots de passes doivent correspondre'
                 : '';
                 break;
                 
@@ -66,13 +66,13 @@ export const Register = () => {
     return (
         <article className="w-full animate-scale">
             <form onSubmit={handleSubmit} noValidate className="flex flex-col">
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Nom d'utilisateur</label>
                 <input type="text" name="username" required autoComplete="off" pattern="[A-Za-z]{3}" onChange={handleChange} value={username} className="mb-4 bg-gray-400"/>
                 {errors.username.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.username}</span>}
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Mot de passe</label>
                 <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password} className="mb-4 bg-gray-400"/>
                 {errors.password.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password}</span>}
-                <label htmlFor="password2">Confirm password</label>
+                <label htmlFor="password2">Confirmer mot de passe</label>
                 <input type="password" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password2} className="mb-4 bg-gray-400"/>
                 {errors.password2.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password2}</span>}
                 <button className="rounded p-1 text-white bg-black hover:bg-orange-600">Valider</button>

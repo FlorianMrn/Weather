@@ -15,7 +15,7 @@ export const Burger = () => {
                 <span className={`${!display ? "w-8 h-1" : "w-1 h-6 rotate-180"} bg-orange-600 rounded transition-all duration-500 ease-in-out`}></span>
             </nav>
             {display && 
-            <div className="z-1 absolute h-screen left-0 top-0 bg-white animate-scale p-4">
+            <div className="z-1 absolute h-screen left-0 top-0 bg-white animate-scale p-4 w-56">
                 <Nav />
             </div> 
             }

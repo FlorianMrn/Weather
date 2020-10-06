@@ -10,7 +10,7 @@ import WeatherContainer from '../../redux/containers/weatherMainContainer';
 import WeatherNav from '../../components/weather/components/weatherNav';
 import ForecastContainer from '../../redux/containers/ForecastContainer';
 
-const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading }:any) => {
+const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading, load }:any) => {
 
     useEffect(() => {
         sendRequestOpen();
@@ -21,7 +21,7 @@ const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading }:any) => {
         <>
         {!isLoading ?
         <div className ="max-w-screen-lg h-screen m-auto relative bg-cover bg-center bg-no-repeat relative z-10">
-            <img src={photo} alt="batiment" className="z-0 absolute min-w-full min-h-full object-cover"/>
+            <img src={photo} alt="batiment" className={`z-0 absolute min-w-full min-h-full object-cover opacity-75`}/>
             <HeaderContainer />
                 <Switch>
                     <Route exact path="/">
