@@ -60,22 +60,29 @@ export const Register = () => {
             (val) => val.length > 0 && (valid = false)
         );
 
-        console.log("ok", valid);
+        if (valid) {
+            const newUser = {
+                username : username,
+                password : password
+            };
+
+            console.log(newUser);
+        }
     }
 
     return (
         <article className="w-full animate-scale">
             <form onSubmit={handleSubmit} noValidate className="flex flex-col">
                 <label htmlFor="username">Nom d'utilisateur</label>
-                <input type="text" name="username" required autoComplete="off" pattern="[A-Za-z]{3}" onChange={handleChange} value={username} className="mb-4 bg-gray-400"/>
+                <input type="text" name="username" required autoComplete="off" pattern="[A-Za-z]{3}" onChange={handleChange} value={username} className="mb-4 bg-gray-400 p-2 outline-none"/>
                 {errors.username.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.username}</span>}
                 <label htmlFor="password">Mot de passe</label>
-                <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password} className="mb-4 bg-gray-400"/>
+                <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password} className="mb-4 bg-gray-400 p-2 outline-none"/>
                 {errors.password.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password}</span>}
                 <label htmlFor="password2">Confirmer mot de passe</label>
-                <input type="password" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password2} className="mb-4 bg-gray-400"/>
+                <input type="password" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onChange={handleChange} value={password2} className="mb-4 bg-gray-400 p-2 outline-none"/>
                 {errors.password2.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password2}</span>}
-                <button className="rounded p-1 text-white bg-black hover:bg-orange-600">Valider</button>
+                <button className="rounded p-1 text-white bg-black hover:bg-orange-600 p-2">Valider</button>
             </form>
         </article>
     );

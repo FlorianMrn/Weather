@@ -17,7 +17,12 @@ export const Login = () => {
         e.preventDefault();
 
         if (password !== "" && username !== "") {
-            console.log("Ok for submit");
+            const userData = {
+                username : username,
+                password : password
+            };
+
+            console.log(userData);
         } else {
             return;
         }
@@ -27,10 +32,10 @@ export const Login = () => {
         <article className="w-full animate-scale">
             <form className="flex flex-col" onSubmit={handleSubmit}>
                 <label htmlFor="username">Nom d'utilisateur</label>
-                <input type="text" name="username" required autoComplete="off" onChange={handleChange} value={username} className="mb-4 bg-gray-400"/>
+                <input type="text" name="username" required autoComplete="off" onChange={handleChange} value={username} className="mb-4 bg-gray-400 p-2 outline-none"/>
                 <label htmlFor="password">Mot de passe</label>
-                <input type="password" name="password" onChange={handleChange} value={password} className="mb-4 bg-gray-400"/>
-                <button className="rounded p-1 text-white bg-black hover:bg-orange-600">Valider</button>
+                <input type="password" name="password" onChange={handleChange} value={password} className="mb-4 bg-gray-400 p-2 outline-none"/>
+                <button className="rounded p-1 text-white bg-black hover:bg-orange-600 p-2">Valider</button>
             </form>
         </article>
     );

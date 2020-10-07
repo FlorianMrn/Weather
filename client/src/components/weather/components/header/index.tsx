@@ -37,7 +37,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading}: he
         <header className="w-3/4 lg:w-2/4 h-12 p-4 flex justify-between items-center relative z-10">
             <Burger />
             <form onSubmit={handleSubmit} className="w-auto h-12 p-4 flex justify-center items-center" >
-                <input type="text" className="mr-4 focus:bg-orange-600 outline-none rounded" value={value} onChange={handleChange} />
+                <input type="text" className="mr-4 focus:bg-orange-600 outline-none rounded p-1" value={value} onChange={handleChange} />
                 <FaSearch className="h-full text-white cursor-pointer mr-2 hover:text-orange-600" onClick={handleSubmit}/>
                 <FaSave className="h-full text-white cursor-pointer hover:text-orange-600" onClick={handleSave}/>
             </form>

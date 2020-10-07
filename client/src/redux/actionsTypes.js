@@ -4,3 +4,6 @@ export const SEND_REQUEST_PIXA = "SEND_REQUEST";
 export const SEND_REQUEST_OPEN = "SEND_REQUEST_OPEN";
 export const GET_PHOTO = 'GET_PHOTO';
 export const LOADING = 'LOADING';
+export const GET_ERRORS = "GET_ERRORS";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const LOADING_AUTH = "LOADING_AUTH";

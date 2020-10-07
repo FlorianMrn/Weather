@@ -15,7 +15,8 @@ const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading, load }:any
     useEffect(() => {
         sendRequestOpen();
         sendRequestPixa();
-    }, [sendRequestOpen, sendRequestPixa]);
+        load();
+    }, [sendRequestOpen, sendRequestPixa, load]);
 
     return (
         <>

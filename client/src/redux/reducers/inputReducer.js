@@ -7,17 +7,15 @@ const initialState = {
 const input = ( state = initialState, action ) => {
 
     switch(action.type) {
-        case GET_VALUE: {
+        case GET_VALUE: 
             return (
                 {
                 ...state,
                 value : action.value
                 }
             )
-        }
-        default : {
-            return state
-        }
+        default : 
+            return state;
     }
 };
 

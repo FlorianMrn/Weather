@@ -1,4 +1,4 @@
-import { GET_VALUE, GET_JSON, GET_PHOTO, SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, LOADING} from "./actionsTypes";
+import { GET_VALUE, GET_JSON, GET_PHOTO, SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, LOADING, GET_ERRORS, SET_CURRENT_USER, LOADING_AUTH} from "./actionsTypes";
 
 export const getValue = (value) => (
     {
@@ -37,4 +37,24 @@ export const loading = () => (
     {
         type : LOADING
     }
-)
+);
+
+export const getErrors = (payload) => (
+    {
+        type : GET_ERRORS,
+        payload
+    }
+);
+
+export const setCurrentUser = (payload) => (
+    {
+        type : SET_CURRENT_USER,
+        payload
+    }
+);
+
+export const loadingAUth = () => (
+    {
+        type : LOADING_AUTH
+    }
+);

@@ -6,7 +6,7 @@ import test from '../../assets/json/test.json';
 const initialState = {
     infos: test,
     photo : 'https://metropole.nantes.fr/files/images/vie-institutions/villes/nantes-vue-aerienne-1920.jpg',
-    isLoading : true
+    isLoading : false
 };
 
 const weather = ( state = initialState, action ) => {
