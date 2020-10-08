@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Component
-import { Nav } from '../Auth/Nav';
+import NavHeader from '../../../../../redux/containers/authReducer';
 
 export const Burger = () => {
 
@@ -16,7 +16,7 @@ export const Burger = () => {
             </nav>
             {display && 
             <div className="z-1 absolute h-screen left-0 top-0 bg-white animate-scale p-4 w-56">
-                <Nav />
+                <NavHeader />
             </div> 
             }
         </>

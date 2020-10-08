@@ -7,3 +7,5 @@ export const LOADING = 'LOADING';
 export const GET_ERRORS = "GET_ERRORS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const LOADING_AUTH = "LOADING_AUTH";
+export const REGISTER = "REGISTER";
+export const LOGIN = "LOGIN";

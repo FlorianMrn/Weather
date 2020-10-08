@@ -1,4 +1,14 @@
-import { GET_VALUE, GET_JSON, GET_PHOTO, SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, LOADING, GET_ERRORS, SET_CURRENT_USER, LOADING_AUTH} from "./actionsTypes";
+import { GET_VALUE, 
+    GET_JSON, 
+    GET_PHOTO, 
+    SEND_REQUEST_PIXA, 
+    SEND_REQUEST_OPEN, 
+    LOADING, GET_ERRORS, 
+    SET_CURRENT_USER, 
+    LOADING_AUTH, 
+    REGISTER,
+    LOGIN} 
+from "./actionsTypes";
 
 export const getValue = (value) => (
     {
@@ -53,8 +63,20 @@ export const setCurrentUser = (payload) => (
     }
 );
 
-export const loadingAUth = () => (
+export const loadingAuth = () => (
     {
         type : LOADING_AUTH
     }
 );
+
+export const register = () => (
+    {
+        type : REGISTER
+    }
+);
+
+export const login = () => (
+    {
+        type : LOGIN
+    }
+)
