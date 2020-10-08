@@ -11,7 +11,7 @@ const mapStateToProps = ( state ) => ({
     isAuthenticated : state.auth.isAuthenticated,
     user : state.auth.user,
     loading : state.auth.loading,
-    errors : state.auth.errors,
+    errorsAuth : state.auth.errors,
     message : state.auth.message
 });
 

@@ -4,12 +4,10 @@ import React, { useState } from 'react';
 import { Login } from '../Login';
 import { Register } from '../Register';
 
-export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, registerAuth, loginAuth, message}) => {
+export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, registerAuth, loginAuth, message, errorsAuth}) => {
 
     const [login, setLogin] = useState(true);
     const [register, setRegister] = useState(false);
-
-    console.log("res suite register", message === true);
 
     const handleClick = (e) => {
         if (e.target.name === "register") {
@@ -28,12 +26,12 @@ export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, regist
         {!loading ?
         <>
             <div className="w-full h-8 flex flex-row-reverse">
-                <button className={`rounded p-1 ${login ? "bg-orange-600" : "bg-gray-500"} ml-3 text-white outline-none`} name="login" onClick={handleClick}>Connexion</button>
-                <button className={`rounded p-1 ${register ? "bg-orange-600" : "bg-gray-500"} text-white outline-none`} name="register" onClick={handleClick}>Inscription</button>
+                <button className={`rounded p-1 ${login ? "bg-orange-600" : "bg-gray-500"} ml-3 text-white focus:outline-none`} name="login" onClick={handleClick}>Connexion</button>
+                <button className={`rounded p-1 ${register ? "bg-orange-600" : "bg-gray-500"} text-white focus:outline-none`} name="register" onClick={handleClick}>Inscription</button>
             </div>
             <div className="w-full h-64 flex items-center justify-center mt-16">
                 {login && <Login /> }
-                {register && <Register registerAuth={registerAuth} loadingAuth={loadingAuth} message={message}/> }
+                {register && <Register registerAuth={registerAuth} loadingAuth={loadingAuth} message={message} errorsAuth={errorsAuth}/> }
             </div>
         </>
         :   <div className="h-full w-full flex flex-col justify-center items-center text-center">

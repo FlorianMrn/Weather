@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN} from '../actionsTypes';
 import { getPhoto, getJson, loading, loadingAuth, getErrors, message } from '../actions';
 
+
 const weatherMiddleware = store => next => action => {
     const state = store.getState();
     const input = state.input.value;
@@ -45,13 +46,17 @@ const weatherMiddleware = store => next => action => {
             break;
 
         case REGISTER:
-                console.log("register", action.userData);
+                
             axios.post("/api/users/register", action.userData)
                 .then(res => {
-                     store.dispatch(loadingAuth());
-                     store.dispatch(message(res.data.message))
+                     store.dispatch(message(res.data.message));
                 })
-                .catch(err => store.dispatch(getErrors(err.response.data)));
+                .catch(err => {
+                    store.dispatch(getErrors(err.response.data));
+                })
+                .finally( () => {
+                    store.dispatch(loadingAuth());
+                })
             break;
 
         case LOGIN:

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Register = ({registerAuth, history, loadingAuth, message}) => {
+export const Register = ({registerAuth, history, loadingAuth, message, errorsAuth}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -9,13 +9,16 @@ export const Register = ({registerAuth, history, loadingAuth, message}) => {
         username: '',
         password: '',
         password2: ''
-    })
+    });
+    const [err, setErrorAuth] = useState(errorsAuth.username);
 
     const handleChange = (e) => {
 
         const { name, value } = e.target;
         const regex = RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/i);
         let error = null;
+        // Reset err following register
+        setErrorAuth("");
 
         switch (name) {
             case 'username':
@@ -69,7 +72,7 @@ export const Register = ({registerAuth, history, loadingAuth, message}) => {
             loadingAuth();
             registerAuth(newUser);
         }
-    }
+    };
 
     return (
         <article className="w-full animate-scale">
@@ -86,6 +89,7 @@ export const Register = ({registerAuth, history, loadingAuth, message}) => {
                 <button className="rounded p-1 text-white bg-black hover:bg-orange-600 p-2">Valider</button>
             </form>
             {message && <p className="mt-2 font-bold text-green-400 text-center">{message}</p>}
+            {err && handleChange && <p className="mt-2 font-bold text-red-400 text-center">{err}</p>}
         </article>
     );
 };
