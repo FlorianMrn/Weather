@@ -1,7 +1,10 @@
 import axios from 'axios';
+import setAuthToken from "../../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
 
-import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN} from '../actionsTypes';
-import { getPhoto, getJson, loading } from '../actions';
+
+import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN} from '../actionsTypes';
+import { getPhoto, getJson, loading, loadingAuth, getErrors, message } from '../actions';
 
 const weatherMiddleware = store => next => action => {
     const state = store.getState();
@@ -23,7 +26,8 @@ const weatherMiddleware = store => next => action => {
                 .finally(() => {
                 
                 });
-                break;
+            break;
+
         case SEND_REQUEST_OPEN:
 
             const OPEN_KEY = process.env.REACT_APP_OPEN;
@@ -38,7 +42,25 @@ const weatherMiddleware = store => next => action => {
                 .finally( () => {
 
                 });
-                break;
+            break;
+
+        case REGISTER:
+                console.log("register", action.userData);
+            axios.post("/api/users/register", action.userData)
+                .then(res => {
+                     store.dispatch(loadingAuth());
+                     store.dispatch(message(res.data.message))
+                })
+                .catch(err => store.dispatch(getErrors(err.response.data)));
+            break;
+
+        case LOGIN:
+
+            axios.post("/api/users/login", action.userData)
+                .then(res => console.log("Res Login", res))
+                .catch(err => console.log("Err Login", err));
+            break;
+
         default :
             next(action);
     };

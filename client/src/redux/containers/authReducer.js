@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 // Import actions
 import { loadingAuth, register, login} from '../actions';
@@ -10,7 +11,8 @@ const mapStateToProps = ( state ) => ({
     isAuthenticated : state.auth.isAuthenticated,
     user : state.auth.user,
     loading : state.auth.loading,
-    errors : state.auth.errors
+    errors : state.auth.errors,
+    message : state.auth.message
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
@@ -18,16 +20,16 @@ const mapDispatchToProps = ( dispatch ) => ({
         const action = loadingAuth();
         dispatch(action);
     },
-    register : () => {
-        const action = register();
+    registerAuth : (userData) => {
+        const action = register(userData);
         dispatch(action);
     },
-    login : () => {
-        const action = login();
+    loginAuth : (userData) => {
+        const action = login(userData);
         dispatch(action);
     }
 });
 
-const navHeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Nav);
+const navHeaderContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));
 
 export default navHeaderContainer;

@@ -20,12 +20,12 @@ router.post("/register", (req, res) => {
         
 
         bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-                if (err) throw err;
+            bcrypt.hash(newUser.password, salt, (error, hash) => {
+                if (error) throw error;
                 newUser.password = hash;
                 newUser
                     .save()
-                    .then(user => res.json(user))
+                    .then(user => res.json({user, message : "Inscription validée"}))
                     .catch(err => console.log(err));
             });
         });

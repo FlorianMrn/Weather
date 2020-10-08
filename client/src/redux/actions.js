@@ -7,7 +7,9 @@ import { GET_VALUE,
     SET_CURRENT_USER, 
     LOADING_AUTH, 
     REGISTER,
-    LOGIN} 
+    LOGIN,
+    MESSAGE
+} 
 from "./actionsTypes";
 
 export const getValue = (value) => (
@@ -69,14 +71,22 @@ export const loadingAuth = () => (
     }
 );
 
-export const register = () => (
+export const register = (userData) => (
     {
-        type : REGISTER
+        type : REGISTER,
+        userData
     }
 );
 
 export const login = () => (
     {
         type : LOGIN
+    }
+);
+
+export const message = (message) => (
+    {
+        type : MESSAGE,
+        message
     }
 )

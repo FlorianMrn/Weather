@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Register = () => {
+export const Register = ({registerAuth, history, loadingAuth, message}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -63,10 +63,11 @@ export const Register = () => {
         if (valid) {
             const newUser = {
                 username : username,
-                password : password
+                password : password,
             };
 
-            console.log(newUser);
+            loadingAuth();
+            registerAuth(newUser);
         }
     }
 
@@ -84,6 +85,7 @@ export const Register = () => {
                 {errors.password2.length > 0 &&  <span className='text-sm text-red-400 -mt-4 mb-4'>{errors.password2}</span>}
                 <button className="rounded p-1 text-white bg-black hover:bg-orange-600 p-2">Valider</button>
             </form>
+            {message && <p className="mt-2 font-bold text-green-400 text-center">{message}</p>}
         </article>
     );
 };

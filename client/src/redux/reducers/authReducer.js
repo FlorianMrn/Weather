@@ -1,11 +1,12 @@
-import { GET_ERRORS, SET_CURRENT_USER, LOADING_AUTH } from '../actionsTypes';
+import { GET_ERRORS, SET_CURRENT_USER, LOADING_AUTH, MESSAGE } from '../actionsTypes';
 
 
 const initialState = {
     isAuthenticated: false,
     user: {},
     loading: false,
-    errors: {}
+    errors: {},
+    message: ""
 };
 
 const isEmpty = require("is-empty");
@@ -22,12 +23,17 @@ const weather = ( state = initialState, action ) => {
         case LOADING_AUTH:
             return {
                 ...state,
-                loading: true
+                loading: !state.loading
             };
         case GET_ERRORS:
             return {
                 ...state,
                 errors : action.payload
+            };
+        case MESSAGE:
+            return {
+                ...state,
+                message : action.message
             }
         default : 
             return state;

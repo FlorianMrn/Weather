@@ -9,3 +9,4 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const LOADING_AUTH = "LOADING_AUTH";
 export const REGISTER = "REGISTER";
 export const LOGIN = "LOGIN";
+export const MESSAGE = "MESSAGE";
