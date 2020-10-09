@@ -62,7 +62,6 @@ const weatherMiddleware = store => next => action => {
 
             axios.post("/api/users/login", action.userData)
                 .then(res => {
-                    console.log("Res Login", res);
                     const { token } = res.data;
                     localStorage.setItem('jwtToken', token);
                     setAuthToken(token);
@@ -70,6 +69,7 @@ const weatherMiddleware = store => next => action => {
                     store.dispatch(setCurrentUser(decoded));
                 })
                 .catch(err => {
+                    console.log("erreur :", err.response.data)
                     store.dispatch(getErrors(err.response.data));
                 })
                 .finally( () => {

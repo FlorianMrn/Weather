@@ -89,7 +89,7 @@ export const Register = ({registerAuth, history, loadingAuth, message, errorsAut
                 <button className="rounded p-1 text-white bg-black hover:bg-orange-600 p-2">Valider</button>
             </form>
             {message && <p className="mt-2 font-bold text-green-400 text-center">{message}</p>}
-            {err && handleChange && <p className="mt-2 font-bold text-red-400 text-center">{err}</p>}
+            {err && <p className="mt-2 font-bold text-red-400 text-center">{err}</p>}
         </article>
     );
 };

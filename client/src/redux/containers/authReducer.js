@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 // Import actions
-import { loadingAuth, register, login} from '../actions';
+import { loadingAuth, register, login, deleteFav} from '../actions';
 
 // Import Local
 import { Nav } from '../../components/weather/components/header/Auth/Nav';
@@ -12,7 +12,8 @@ const mapStateToProps = ( state ) => ({
     user : state.auth.user,
     loading : state.auth.loading,
     errorsAuth : state.auth.errors,
-    message : state.auth.message
+    message : state.auth.message,
+    favs : state.input.favs
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
@@ -26,6 +27,10 @@ const mapDispatchToProps = ( dispatch ) => ({
     },
     loginAuth : (userData) => {
         const action = login(userData);
+        dispatch(action);
+    },
+    deleteFav: (id) => {
+        const action = deleteFav(id);
         dispatch(action);
     }
 });

@@ -9,10 +9,12 @@ type headerProps = {
     getValue: Function,
     sendRequestPixa: Function,
     sendRequestOpen: Function,
-    loading: Function
+    loading: Function,
+    isAuthenticated: Boolean,
+    saveFav: Function
 }
 
-const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading}: headerProps) => {
+const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isAuthenticated, saveFav}: headerProps) => {
 
     const handleChange = (e: any) => {
        getValue(e.target.value);
@@ -29,7 +31,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading}: he
 
     const handleSave = (e:any) => {
         return (
-            console.log("ok")
+            saveFav(value)
         )
     };
 
@@ -39,7 +41,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading}: he
             <form onSubmit={handleSubmit} className="w-auto h-12 p-4 flex justify-center items-center" >
                 <input type="text" className="mr-4 focus:bg-orange-600 outline-none rounded p-1" value={value} onChange={handleChange} />
                 <FaSearch className="h-full text-white cursor-pointer mr-2 hover:text-orange-600" onClick={handleSubmit}/>
-                <FaSave className="h-full text-white cursor-pointer hover:text-orange-600" onClick={handleSave}/>
+                {isAuthenticated && <FaSave className="h-full text-white cursor-pointer hover:text-orange-600" onClick={handleSave}/>}
             </form>
         </header>
     );

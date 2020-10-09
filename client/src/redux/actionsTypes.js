@@ -10,3 +10,6 @@ export const LOADING_AUTH = "LOADING_AUTH";
 export const REGISTER = "REGISTER";
 export const LOGIN = "LOGIN";
 export const MESSAGE = "MESSAGE";
+export const DISCONNECT = "DISCONNECT";
+export const SAVE_FAV = "SAVE_FAV";
+export const DELETE_FAV = "DELETE_FAV";

@@ -8,7 +8,10 @@ import { GET_VALUE,
     LOADING_AUTH, 
     REGISTER,
     LOGIN,
-    MESSAGE
+    MESSAGE,
+    DISCONNECT,
+    SAVE_FAV,
+    DELETE_FAV
 } 
 from "./actionsTypes";
 
@@ -89,5 +92,25 @@ export const message = (message) => (
     {
         type : MESSAGE,
         message
+    }
+);
+
+export const disconnect = () => (
+    {
+        type : DISCONNECT
+    }
+);
+
+export const saveFav = (fav) => (
+    {
+        type: SAVE_FAV,
+        fav
+    }
+);
+
+export const deleteFav = (id) => (
+    {
+        type: DELETE_FAV,
+        id
     }
 )

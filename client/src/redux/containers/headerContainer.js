@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 
 // Import Actions
-import { getValue, sendRequestPixa, sendRequestOpen, loading} from '../actions';
+import { getValue, sendRequestPixa, sendRequestOpen, loading, saveFav} from '../actions';
 
 // Import Components
 import Header from '../../components/weather/components/header';
 
 const mapStateToProps = ( state ) => ({
-    value: state.input.value
+    value: state.input.value,
+    isAuthenticated : state.auth.isAuthenticated
 });
 
 const mapDispatchToProps = ( dispatch ) => ({
@@ -25,6 +26,10 @@ const mapDispatchToProps = ( dispatch ) => ({
     },
     loading : () => {
         const action = loading();
+        dispatch(action);
+    },
+    saveFav: (value) => {
+        const action = saveFav(value);
         dispatch(action);
     }
 })
