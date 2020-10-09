@@ -41,7 +41,7 @@ export const Register = ({registerAuth, history, loadingAuth, message, errorsAut
                 setPassword2(value);
                 error =
                 value !== password || (!regex.test(value))
-                ? 'Les mots de passes doivent correspondre'
+                ? 'Les mots de passe doivent correspondre'
                 : '';
                 break;
                 
@@ -65,8 +65,8 @@ export const Register = ({registerAuth, history, loadingAuth, message, errorsAut
 
         if (valid) {
             const newUser = {
-                username : username,
-                password : password,
+                username,
+                password,
             };
 
             loadingAuth();

@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 
 
 import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN} from '../actionsTypes';
-import { getPhoto, getJson, loading, loadingAuth, getErrors, message } from '../actions';
+import { getPhoto, getJson, loading, loadingAuth, getErrors, message, setCurrentUser } from '../actions';
 
 
 const weatherMiddleware = store => next => action => {
@@ -19,13 +19,12 @@ const weatherMiddleware = store => next => action => {
             axios.get(`https://pixabay.com/api/?key=${PIXA_KEY}&q=${input} batiment&image_type=photo&lang=fr&per_page=3&SameSite=None`)
                 .then( (res) => {
                     store.dispatch(getPhoto(res.data.hits.length > 0 ? res.data.hits[0].largeImageURL : "https://hdwallpaperim.com/wp-content/uploads/2017/08/24/98616-minimalism-404_Not_Found-748x421.jpg"));
-                    store.dispatch(loading());
                 })
                 .catch( (err) => {
                     console.error("PIXA", err);
                 })
                 .finally(() => {
-                
+                    store.dispatch(loading());
                 });
             break;
 
@@ -62,8 +61,20 @@ const weatherMiddleware = store => next => action => {
         case LOGIN:
 
             axios.post("/api/users/login", action.userData)
-                .then(res => console.log("Res Login", res))
-                .catch(err => console.log("Err Login", err));
+                .then(res => {
+                    console.log("Res Login", res);
+                    const { token } = res.data;
+                    localStorage.setItem('jwtToken', token);
+                    setAuthToken(token);
+                    const decoded = jwt_decode(token);
+                    store.dispatch(setCurrentUser(decoded));
+                })
+                .catch(err => {
+                    store.dispatch(getErrors(err.response.data));
+                })
+                .finally( () => {
+                    store.dispatch(loadingAuth());
+                })
             break;
 
         default :

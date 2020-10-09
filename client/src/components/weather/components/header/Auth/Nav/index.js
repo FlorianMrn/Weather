@@ -30,7 +30,7 @@ export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, regist
                 <button className={`rounded p-1 ${register ? "bg-orange-600" : "bg-gray-500"} text-white focus:outline-none`} name="register" onClick={handleClick}>Inscription</button>
             </div>
             <div className="w-full h-64 flex items-center justify-center mt-16">
-                {login && <Login /> }
+                {login && <Login loginAuth={loginAuth} loadingAuth={loadingAuth}/> }
                 {register && <Register registerAuth={registerAuth} loadingAuth={loadingAuth} message={message} errorsAuth={errorsAuth}/> }
             </div>
         </>

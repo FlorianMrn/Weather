@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Login = () => {
+export const Login = ({loginAuth, loadingAuth}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -18,11 +18,12 @@ export const Login = () => {
 
         if (password !== "" && username !== "") {
             const userData = {
-                username : username,
-                password : password
+                username,
+                password
             };
 
-            console.log(userData);
+            loginAuth(userData);
+            loadingAuth();
         } else {
             return;
         }

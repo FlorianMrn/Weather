@@ -58,10 +58,10 @@ export const getErrors = (payload) => (
     }
 );
 
-export const setCurrentUser = (payload) => (
+export const setCurrentUser = (decoded) => (
     {
         type : SET_CURRENT_USER,
-        payload
+        payload : decoded
     }
 );
 
@@ -78,9 +78,10 @@ export const register = (userData) => (
     }
 );
 
-export const login = () => (
+export const login = (userData) => (
     {
-        type : LOGIN
+        type : LOGIN,
+        userData
     }
 );
 
