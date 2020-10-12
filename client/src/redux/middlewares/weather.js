@@ -3,7 +3,7 @@ import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
 
-import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN} from '../actionsTypes';
+import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN, DISCONNECT} from '../actionsTypes';
 import { getPhoto, getJson, loading, loadingAuth, getErrors, message, setCurrentUser } from '../actions';
 
 
@@ -75,6 +75,13 @@ const weatherMiddleware = store => next => action => {
                 .finally( () => {
                     store.dispatch(loadingAuth());
                 })
+            break;
+        
+        case DISCONNECT: 
+
+            localStorage.removeItem("jwtToken");
+            setAuthToken(false);
+            store.dispatch(setCurrentUser({}));
             break;
 
         default :

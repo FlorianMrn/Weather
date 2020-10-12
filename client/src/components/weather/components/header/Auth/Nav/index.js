@@ -5,7 +5,7 @@ import { Login } from '../Login';
 import { Register } from '../Register';
 import { Fav } from '../Fav';
 
-export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, registerAuth, loginAuth, message, errorsAuth, favs, deleteFav}) => {
+export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, registerAuth, loginAuth, message, errorsAuth, favs, deleteFav, disconnect}) => {
 
     const [login, setLogin] = useState(true);
     const [register, setRegister] = useState(false);
@@ -23,7 +23,7 @@ export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, regist
     };
 
     const handleDisconnect = () => {
-        console.log("deco");
+        disconnect();
     };
 
     return (

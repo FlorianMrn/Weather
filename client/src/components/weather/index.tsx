@@ -10,12 +10,17 @@ import WeatherContainer from '../../redux/containers/weatherMainContainer';
 import WeatherNav from '../../components/weather/components/weatherNav';
 import ForecastContainer from '../../redux/containers/ForecastContainer';
 
+// Fucntions
+import setLocalToken from '../../utils/setLocalToken';
+
 const Weather = ({photo, sendRequestOpen, sendRequestPixa, isLoading, load }:any) => {
 
     useEffect(() => {
         sendRequestOpen();
         sendRequestPixa();
         load();
+        setLocalToken();
+        
     }, [sendRequestOpen, sendRequestPixa, load]);
 
     return (
