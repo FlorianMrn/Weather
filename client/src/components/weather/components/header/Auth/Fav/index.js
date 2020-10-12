@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTimesCircle, FaSave } from "react-icons/fa";
+import { FaTimes, FaSave } from "react-icons/fa";
 
 export const Fav = ({favs, deleteFav}) => {
 
@@ -8,9 +8,9 @@ export const Fav = ({favs, deleteFav}) => {
             {favs.length > 0 ?
             <>
                 {favs.map((fav, index) => (
-                <div className="max-w-sm w-56 p-6 h-24 flex shadow-lg flex justify-between rounded items-center bg-gradient-to-tr from-orange-600 to-yellow-400" key={index}>
+                <div className="max-w-sm w-56 p-6 h-24 flex shadow-lg flex justify-between rounded items-center bg-gradient-to-tr from-orange-600 to-yellow-400 text-white relative" key={index}>
                     <p className="font-bold text-xl">{fav}</p>
-                    <FaTimesCircle className="cursor-pointer" onClick={() => deleteFav(index)}/>
+                    <FaTimes className="cursor-pointer absolute top-0 right-0 text-lg" onClick={() => deleteFav(index)}/>
                 </div>
             ))}
             </>

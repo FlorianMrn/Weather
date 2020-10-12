@@ -13,8 +13,12 @@ app.use(
         extended: false
     })
 );
-app.use(bodyParser.json());
-app.use(cors());
+
+app.use(
+    cors(),
+    bodyParser.json()
+);
+
 
 mongoose.connect(
     `mongodb+srv://admin:${process.env.DB_PASS}@cluster0.o5plw.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
