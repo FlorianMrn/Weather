@@ -9,7 +9,8 @@ const favSchema = new Schema({
     date: {
         type : Date,
         default : Date.now
-    }
+    },
+    user: [{type: Schema.Types.ObjectId, ref: 'WeatherUsers'}]
 });
 
 module.export = Fav = mongoose.model("WeatherUserFav", favSchema);

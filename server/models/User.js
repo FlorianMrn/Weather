@@ -14,7 +14,8 @@ const userSchema = new Schema({
     date: {
         type : Date,
         default : Date.now
-    }
+    },
+    favs: [{type: Schema.Types.ObjectId, ref: 'WeatherUserFav'}]
 });
 
 module.exports = User = mongoose.model("WeatherUsers", userSchema);
