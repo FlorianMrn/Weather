@@ -11,7 +11,8 @@ import { GET_VALUE,
     MESSAGE,
     DISCONNECT,
     SAVE_FAV,
-    DELETE_FAV
+    DELETE_FAV,
+    SET_FAVS
 } 
 from "./actionsTypes";
 
@@ -101,10 +102,9 @@ export const disconnect = () => (
     }
 );
 
-export const saveFav = (fav) => (
+export const saveFav = () => (
     {
-        type: SAVE_FAV,
-        fav
+        type: SAVE_FAV
     }
 );
 
@@ -112,5 +112,12 @@ export const deleteFav = (id) => (
     {
         type: DELETE_FAV,
         id
+    }
+);
+
+export const setFavs = (fav) => (
+    {
+        type: SET_FAVS,
+        fav
     }
 )

@@ -7,10 +7,10 @@ export const Fav = ({favs, deleteFav}) => {
         <main>
             {favs.length > 0 ?
             <>
-                {favs.map((fav, index) => (
-                <div className="max-w-sm w-56 p-6 h-24 flex shadow-lg flex justify-between rounded items-center bg-gradient-to-tr from-orange-600 to-yellow-400 text-white relative" key={index}>
-                    <p className="font-bold text-xl">{fav}</p>
-                    <FaTimes className="cursor-pointer absolute top-0 right-0 text-lg" onClick={() => deleteFav(index)}/>
+                {favs.map(({name, id}) => (
+                <div className="max-w-sm w-56 p-6 h-24 flex shadow-lg flex justify-between rounded items-center bg-gradient-to-tr from-orange-600 to-yellow-400 text-white relative" key={name}>
+                    <p className="font-bold text-xl">{name}</p>
+                    <FaTimes className="cursor-pointer absolute top-0 right-0 text-lg" onClick={() => deleteFav(id)}/>
                 </div>
             ))}
             </>

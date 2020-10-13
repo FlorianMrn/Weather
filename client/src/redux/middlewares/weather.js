@@ -3,15 +3,16 @@ import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
 
-import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN, DISCONNECT} from '../actionsTypes';
-import { getPhoto, getJson, loading, loadingAuth, getErrors, message, setCurrentUser } from '../actions';
+import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN, DISCONNECT, SAVE_FAV} from '../actionsTypes';
+import { getPhoto, getJson, loading, loadingAuth, getErrors, message, setCurrentUser, setFavs } from '../actions';
 
 
 const weatherMiddleware = store => next => action => {
     const state = store.getState();
     const input = state.input.value;
+    const userId = state.auth.user.id;
 
-    // S
+    // Special instance to counter headers
     const instance = axios.create();
     delete instance.defaults.headers.common['Authorization'];
 
@@ -87,7 +88,24 @@ const weatherMiddleware = store => next => action => {
             setAuthToken(false);
             store.dispatch(setCurrentUser({}));
             break;
-
+        
+        case SAVE_FAV:
+                
+        const fav = {id: userId, name: input};
+                
+            axios.post("/api/favs", fav)
+                .then(res => {
+                    const fav = {
+                        id: res.data.result._id,
+                        name: res.data.result.name
+                    };
+                    store.dispatch(setFavs(fav));
+                    
+                })
+                .catch(err => {
+                    console.log(err)
+                });
+            break;
         default :
             next(action);
     };

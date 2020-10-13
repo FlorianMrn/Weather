@@ -8,7 +8,8 @@ import Header from '../../components/weather/components/header';
 
 const mapStateToProps = ( state ) => ({
     value: state.input.value,
-    isAuthenticated : state.auth.isAuthenticated
+    isAuthenticated : state.auth.isAuthenticated,
+    favs: state.input.favs
 });
 
 const mapDispatchToProps = ( dispatch ) => ({

@@ -1,4 +1,4 @@
-import { GET_VALUE, SAVE_FAV, DELETE_FAV } from '../actionsTypes';
+import { GET_VALUE, SET_FAVS, DELETE_FAV } from '../actionsTypes';
 
 const initialState = {
     value: 'Nantes',
@@ -15,11 +15,11 @@ const input = ( state = initialState, action ) => {
                 value : action.value
                 }
             )
-        case SAVE_FAV:
+        case SET_FAVS:
             return (
                 {
                 ...state,
-                favs: [...state.favs, state.value]
+                favs: [...state.favs, action.fav]
                 }
             )
         case DELETE_FAV:

@@ -12,11 +12,11 @@ router.get("/favs", (req, res) => {
 router.post("/favs", (req, res) => {
     const fav = new Fav({
         name: req.body.name,
-        user: req.body._id
+        user: req.body.id
     })
     fav.save()
         .then((result) => res.json({result, message: "Fav sauvegardé"}))
-        .catch((err) => console.log(err));
+        .catch((err) => res.send(err));
 })
 
 router.delete("fav/:id", (req, res) => {
