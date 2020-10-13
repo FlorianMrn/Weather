@@ -6,6 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const users = require('./routes/api/users');
+const favs = require('./routes/api/favs');
 require('dotenv').config();
 
 app.use(
@@ -33,6 +34,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 app.use("/api/users", users);
+app.use("/api", favs);
 
 app.listen(PORT, () => {
     console.log(`Listenning on ${PORT}`);

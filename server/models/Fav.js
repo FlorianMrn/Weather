@@ -13,4 +13,4 @@ const favSchema = new Schema({
     user: [{type: Schema.Types.ObjectId, ref: 'WeatherUsers'}]
 });
 
-module.export = Fav = mongoose.model("WeatherUserFav", favSchema);
+module.exports = Fav = mongoose.model("WeatherUserFav", favSchema);
