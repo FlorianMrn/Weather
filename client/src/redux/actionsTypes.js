@@ -13,5 +13,6 @@ export const MESSAGE = "MESSAGE";
 export const DISCONNECT = "DISCONNECT";
 export const SAVE_FAV = "SAVE_FAV";
 export const DELETE_FAV = "DELETE_FAV";
+export const SEND_DELETE_DATA = "SEND_DELETE_DATA";
 export const SET_FAVS = "SET_FAVS";
 export const GET_FAVS = "GET_FAVS";

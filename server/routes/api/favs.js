@@ -20,10 +20,13 @@ router.post("/favs", (req, res) => {
     fav.save()
         .then((result) => res.json({result, message: "Fav sauvegardé"}))
         .catch((err) => res.send(err));
-})
+});
 
-router.delete("fav/:id", (req, res) => {
-    Fav.remove({_id : req.params.id})
+router.delete("/fav/:id", (req, res) => {
+
+    const id = req.params.id;
+
+    Fav.deleteOne({'_id' : id})
         .then((result) => res.json({result, message: "Fav supprimé"}))
         .catch((err) => console.log(err));
 });

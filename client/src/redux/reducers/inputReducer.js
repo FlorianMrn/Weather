@@ -23,12 +23,10 @@ const input = ( state = initialState, action ) => {
                 }
             )
         case DELETE_FAV:
-            const cloneFavs = [...state.favs];
-            cloneFavs.splice(action.id, 1);
             return (
                 {
                 ...state,
-                favs: cloneFavs
+                favs: state.favs.filter(fav => fav.id !== action.id)
                 }
             )
         default : 

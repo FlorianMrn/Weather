@@ -3,8 +3,8 @@ import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
 
-import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN, DISCONNECT, SAVE_FAV, GET_FAVS} from '../actionsTypes';
-import { getPhoto, getJson, loading, loadingAuth, getErrors, message, setCurrentUser, setFavs } from '../actions';
+import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN, DISCONNECT, SAVE_FAV, GET_FAVS, SEND_DELETE_DATA} from '../actionsTypes';
+import { getPhoto, getJson, loading, loadingAuth, getErrors, message, setCurrentUser, setFavs, deleteFav } from '../actions';
 
 
 const weatherMiddleware = store => next => action => {
@@ -126,6 +126,15 @@ const weatherMiddleware = store => next => action => {
                 console.log(error);
                 });
             break;
+
+        case SEND_DELETE_DATA:
+            
+            const id = action.id;
+
+            axios.delete(`/api/fav/${id}`)
+                .finally(() => store.dispatch(deleteFav(id)))
+            break;
+
         default :
             next(action);
     };

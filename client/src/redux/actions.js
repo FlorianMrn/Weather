@@ -12,6 +12,7 @@ import { GET_VALUE,
     DISCONNECT,
     SAVE_FAV,
     DELETE_FAV,
+    SEND_DELETE_DATA,
     SET_FAVS,
     GET_FAVS
 } 
@@ -115,6 +116,13 @@ export const deleteFav = (id) => (
         id
     }
 );
+
+export const sendDeleteData = (id) => (
+    {
+        type : SEND_DELETE_DATA,
+        id
+    }
+)
 
 export const setFavs = (fav) => (
     {

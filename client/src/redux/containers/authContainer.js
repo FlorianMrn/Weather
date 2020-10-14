@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 // Import actions
-import { loadingAuth, register, login, deleteFav, disconnect, getFavs, getValue, sendRequestPixa, sendRequestOpen, loading} from '../actions';
+import { loadingAuth, register, login, sendDeleteData, disconnect, getFavs, getValue, sendRequestPixa, sendRequestOpen, loading} from '../actions';
 
 // Import Local
 import { Nav } from '../../components/weather/components/header/Auth/Nav';
@@ -29,8 +29,8 @@ const mapDispatchToProps = ( dispatch ) => ({
         const action = login(userData);
         dispatch(action);
     },
-    deleteFav: (id) => {
-        const action = deleteFav(id);
+    sendDeleteData: (id) => {
+        const action = sendDeleteData(id);
         dispatch(action);
     },
     disconnect: () => {
