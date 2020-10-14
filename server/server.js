@@ -30,11 +30,14 @@ mongoose.connect(
     .catch((err) => console.log("MongoDB :", err));
 
 app.use(passport.initialize());
-
 require('./config/passport')(passport);
-
 app.use("/api/users", users);
 app.use("/api", favs);
+
+app.use(express.static(path.join(__dirname, '../build')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build'))
+})
 
 app.listen(PORT, () => {
     console.log(`Listenning on ${PORT}`);
