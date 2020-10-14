@@ -4,8 +4,11 @@ const router = express.Router();
 const Fav = require('../../models/Fav');
 
 router.get("/favs", (req, res) => {
-    Fav.find({user : req.body._id})
-        .then((result) => res.send(result))
+
+    let param = req.query.id; 
+
+    Fav.find({user : param})
+        .then((result) => res.json(result))
         .catch((err) => console.log(err));
 });
 
