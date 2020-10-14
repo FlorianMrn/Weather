@@ -109,13 +109,18 @@ const weatherMiddleware = store => next => action => {
         
         case GET_FAVS:
 
-            axios.get("http://localhost:5000/api/favs", {
-                params: {
-                  id: userId
-                }
-                })
+            axios.get("/api/favs", { params: { id: userId }})
                 .then((response) => {
-                console.log(response);
+
+                    let favs = [];
+
+                    response.data.map((elem) =>{
+                        let fav = {id: elem._id, name: elem.name};
+
+                        return favs.push(fav);
+                    });
+
+                    store.dispatch(setFavs(favs));
                 })
                 .catch((error) => {
                 console.log(error);

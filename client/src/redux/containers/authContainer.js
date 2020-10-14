@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 // Import actions
-import { loadingAuth, register, login, deleteFav, disconnect, getFavs} from '../actions';
+import { loadingAuth, register, login, deleteFav, disconnect, getFavs, getValue, sendRequestPixa, sendRequestOpen, loading} from '../actions';
 
 // Import Local
 import { Nav } from '../../components/weather/components/header/Auth/Nav';
@@ -39,6 +39,22 @@ const mapDispatchToProps = ( dispatch ) => ({
     },
     getFavs: () => {
         const action = getFavs();
+        dispatch(action);
+    },
+     getValue : (value) => {
+        const action = getValue(value);
+        dispatch(action);
+    },
+    sendRequestPixa : () => {
+        const action = sendRequestPixa();
+        dispatch(action);
+    },
+    sendRequestOpen : () => {
+        const action = sendRequestOpen();
+        dispatch(action);
+    },
+    load : () => {
+        const action = loading();
         dispatch(action);
     }
 });

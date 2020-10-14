@@ -1,17 +1,27 @@
 import React, {useEffect} from 'react';
 import { FaTimes, FaSave } from "react-icons/fa";
 
-export const Fav = ({favs, deleteFav, getFavs}) => {
+export const Fav = ({favs, deleteFav, getFavs, getValue, sendRequestPixa, sendRequestOpen, load}) => {
+
 
     useEffect(
-        getFavs
+       getFavs
     , []);
+
+    const handleClick = (e) => {
+        const name = e.target.id;
+        getValue(name);
+        sendRequestPixa();
+        sendRequestOpen();
+        load();
+    };
+    
     return (
         <main>
             {favs.length > 0 ?
             <>
                 {favs.map(({name, id}) => (
-                <div className="max-w-sm w-56 p-6 h-24 flex shadow-lg flex justify-between rounded items-center bg-gradient-to-tr from-orange-600 to-yellow-400 text-white relative" key={name}>
+                <div className="max-w-sm w-56 p-6 h-12 mb-4 flex shadow-lg flex justify-between rounded items-center bg-gradient-to-tr from-orange-600 to-yellow-400 text-white relative cursor-pointer" id={name} key={id} onClick={handleClick}>
                     <p className="font-bold text-xl">{name}</p>
                     <FaTimes className="cursor-pointer absolute top-0 right-0 text-lg" onClick={() => deleteFav(id)}/>
                 </div>

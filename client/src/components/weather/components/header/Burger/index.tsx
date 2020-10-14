@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Component
-import NavHeader from '../../../../../redux/containers/authReducer';
+import NavHeader from '../../../../../redux/containers/authContainer';
 
 export const Burger = () => {
 

@@ -52,7 +52,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isA
         <header className="w-3/4 lg:w-2/4 h-12 p-4 flex justify-between items-center z-10 relative">
             <Burger />
             <form onSubmit={handleSubmit} className="w-auto h-auto p-4 flex justify-center items-center" >
-                <input type="text" pattern="[A-Za-z]{3}" className="mr-4 focus:bg-orange-600 outline-none rounded p-1" placeholder="Rechercher une ville.." value={value} onChange={handleChange} />
+                <input type="text" className="mr-4 focus:bg-orange-600 outline-none rounded p-1" placeholder="Rechercher une ville.." value={value} onChange={handleChange} />
                 <FaSearch className="h-full text-white cursor-pointer mr-2 hover:text-orange-600" onClick={handleSubmit}/>
                 {isAuthenticated && <FaSave className="h-full text-white cursor-pointer hover:text-orange-600" onClick={handleSave}/>}
             </form>

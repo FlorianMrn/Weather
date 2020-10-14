@@ -19,7 +19,7 @@ const input = ( state = initialState, action ) => {
             return (
                 {
                 ...state,
-                favs: [...state.favs, action.fav]
+                favs: action.fav
                 }
             )
         case DELETE_FAV:
