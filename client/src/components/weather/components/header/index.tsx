@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { FaSearch, FaSave } from "react-icons/fa";
+import useOutsideClick from "../../../../utils/useOutsideClick";
 
 // Components
 import { Burger } from './Burger';
@@ -19,6 +20,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isA
 
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const ref = useRef();
 
     const handleChange = (e: any) => {
         setError("");
@@ -48,8 +50,14 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isA
         }
     };
 
+    useOutsideClick(ref, () => {
+        setError("");
+        setSuccess("");
+    });
+    
+
     return (
-        <header className="w-3/4 lg:w-2/4 h-12 p-4 flex justify-between items-center z-10 relative">
+        <header className="w-3/4 lg:w-2/4 h-12 p-4 flex justify-between items-center z-10 relative" ref={ref}>
             <Burger />
             <form onSubmit={handleSubmit} className="w-auto h-auto p-4 flex justify-center items-center" >
                 <input type="text" className="mr-4 focus:bg-orange-600 outline-none rounded p-1" placeholder="Rechercher une ville.." value={value} onChange={handleChange} />
