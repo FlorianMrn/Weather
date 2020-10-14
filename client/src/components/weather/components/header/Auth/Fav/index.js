@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { FaTimes, FaSave } from "react-icons/fa";
 
-export const Fav = ({favs, deleteFav}) => {
+export const Fav = ({favs, deleteFav, getFavs}) => {
 
+    useEffect(
+        getFavs
+    , []);
     return (
         <main>
             {favs.length > 0 ?

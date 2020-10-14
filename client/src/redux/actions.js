@@ -12,7 +12,8 @@ import { GET_VALUE,
     DISCONNECT,
     SAVE_FAV,
     DELETE_FAV,
-    SET_FAVS
+    SET_FAVS,
+    GET_FAVS
 } 
 from "./actionsTypes";
 
@@ -120,4 +121,10 @@ export const setFavs = (fav) => (
         type: SET_FAVS,
         fav
     }
-)
+);
+
+export const getFavs = () => (
+    {
+        type: GET_FAVS
+    }
+);

@@ -5,7 +5,7 @@ import { Login } from '../Login';
 import { Register } from '../Register';
 import { Fav } from '../Fav';
 
-export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, registerAuth, loginAuth, message, errorsAuth, favs, deleteFav, disconnect}) => {
+export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, registerAuth, loginAuth, message, errorsAuth, favs, deleteFav, disconnect, getFavs}) => {
 
     const [login, setLogin] = useState(true);
     const [register, setRegister] = useState(false);
@@ -49,7 +49,7 @@ export const Nav = ({isAuthenticated, user, loading, errors, loadingAuth, regist
                     {login && <Login loginAuth={loginAuth} loadingAuth={loadingAuth} errorsAuth={errorsAuth}/> }
                     {register && <Register registerAuth={registerAuth} loadingAuth={loadingAuth} message={message} errorsAuth={errorsAuth}/> }
                 </>
-                :   <Fav favs={favs} deleteFav={deleteFav}/>
+                :   <Fav favs={favs} deleteFav={deleteFav} getFavs={getFavs}/>
                 }
             </div>
         </>

@@ -3,7 +3,7 @@ import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
 
-import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN, DISCONNECT, SAVE_FAV} from '../actionsTypes';
+import { SEND_REQUEST_PIXA, SEND_REQUEST_OPEN, REGISTER, LOGIN, DISCONNECT, SAVE_FAV, GET_FAVS} from '../actionsTypes';
 import { getPhoto, getJson, loading, loadingAuth, getErrors, message, setCurrentUser, setFavs } from '../actions';
 
 
@@ -104,6 +104,21 @@ const weatherMiddleware = store => next => action => {
                 })
                 .catch(err => {
                     console.log(err)
+                });
+            break;
+        
+        case GET_FAVS:
+
+            axios.get("http://localhost:5000/api/favs", {
+                params: {
+                  id: userId
+                }
+                })
+                .then((response) => {
+                console.log(response);
+                })
+                .catch((error) => {
+                console.log(error);
                 });
             break;
         default :
