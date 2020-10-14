@@ -10,7 +10,6 @@ export const Fav = ({favs, deleteFav, getFavs, getValue, sendRequestPixa, sendRe
 
     const handleClick = (e) => {
         const name = e.target.id;
-        console.log(name)
         getValue(name);
         sendRequestPixa();
         sendRequestOpen();
