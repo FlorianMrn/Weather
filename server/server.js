@@ -7,7 +7,11 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const users = require('./routes/api/users');
 const favs = require('./routes/api/favs');
+const path = require('path');
 require('dotenv').config();
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(
     bodyParser.urlencoded({
@@ -34,10 +38,9 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api", favs);
 
-app.use(express.static(path.join(__dirname, '../build')))
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build'))
-})
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Listenning on ${PORT}`);
