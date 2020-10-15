@@ -4,7 +4,8 @@
   "description": "Application météo avec une solution d'authentification pour sauvegarder ses villes favorites",
   "author": "Florian Merrien <fmerrien.dev@gmail.com>",
   "engines": {
-    "node": "12.x"
+    "node": "12.x",
+    "yarn": "1.22.4"
   },
   "scripts": {
     "start": "node server.js",
