@@ -10,9 +10,6 @@ const favs = require('./routes/api/favs');
 const path = require('path');
 require('dotenv').config();
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
-
 app.use(
     bodyParser.urlencoded({
         extended: true
@@ -38,9 +35,17 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api", favs);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+if (process.env.NODE_ENV === "production") {
+
+    // Set static folder
+    app.use(express.static("client/build"));
+  
+    // index.html for all page routes
+    app.get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+    });
+};
+  
 
 app.listen(PORT, () => {
     console.log(`Listenning on ${PORT}`);

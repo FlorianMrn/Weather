@@ -8,7 +8,7 @@
     "yarn": "1.22.4"
   },
   "scripts": {
-    "start": "cd ./server && node server.js",
+    "start": "node server/server.js",
     "heroku-postbuild": "cd ./client && yarn && yarn build"
   },
   "cacheDirectories": [
@@ -25,10 +25,5 @@
     "create-react-app",
     "react"
   ],
-  "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
-  }
+  "license": "MIT"
 }
