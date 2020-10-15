@@ -8,8 +8,8 @@
     "yarn": "1.22.4"
   },
   "scripts": {
-    "start": "node server.js",
-    "heroku-postbuild": "cd client && yarn && yarn build"
+    "start": "cd ./server && node server.js",
+    "heroku-postbuild": "yarn build"
   },
   "cacheDirectories": [
     "node_modules",
