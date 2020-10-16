@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "heroku-postbuild": "cd ../client && yarn && yarn build"
   },
   "proxy": "http://localhost:5000",
   "engines": {
