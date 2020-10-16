@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
 // Import actions
-import { loading, sendRequestOpen, sendRequestPixa } from '../actions';
+import { loading, sendRequestOpen, sendRequestPixa } from '../actions/actions';
 
 // Import Local
-import weatherApp from '../../components/weather';
+import weatherApp from '../../components/Weather';
 
 const mapStateToProps = ( state ) => ({
     photo : state.weather.photo,

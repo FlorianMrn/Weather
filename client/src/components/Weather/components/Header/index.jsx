@@ -5,30 +5,19 @@ import useOutsideClick from "../../../../utils/useOutsideClick";
 // Components
 import { Burger } from './Burger';
 
-type headerProps = {
-    value: string,
-    getValue: Function,
-    sendRequestPixa: Function,
-    sendRequestOpen: Function,
-    loading: Function,
-    isAuthenticated: Boolean,
-    saveFav: Function,
-    favs: any
-}
-
-const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isAuthenticated, saveFav, favs}: headerProps) => {
+const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isAuthenticated, saveFav, favs}) => {
 
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const ref = useRef();
 
-    const handleChange = (e: any) => {
+    const handleChange = (e) => {
         setError("");
         setSuccess("");
         getValue(e.target.value);
     };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e) => {
         return (
             e.preventDefault(),
             sendRequestPixa(),
@@ -37,10 +26,10 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isA
         )
     };
 
-    const handleSave = (e:any) => {
+    const handleSave = (e) => {
         setSuccess("");
 
-        if(favs.find((el: any) => el.name === value)) {
+        if(favs.find((el) => el.name === value)) {
             setError("Ville déjà enregistrée");
         } else if(value === "") {
             setError("Ville requise");

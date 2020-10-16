@@ -1,4 +1,4 @@
-import { GET_VALUE, SET_FAVS, DELETE_FAV } from '../actionsTypes';
+import { GET_VALUE, SET_FAVS, DELETE_FAV } from '../actions/actionsTypes';
 
 const initialState = {
     value: 'Nantes',

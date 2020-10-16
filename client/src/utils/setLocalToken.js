@@ -1,6 +1,6 @@
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
-import { setCurrentUser, disconnect } from '../redux/actions';
+import { setCurrentUser, disconnect } from '../redux/actions/actions';
 import store from '../redux/store';
 import { decode } from 'punycode';
 

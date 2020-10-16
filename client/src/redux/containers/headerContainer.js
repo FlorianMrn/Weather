@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
 // Import Actions
-import { getValue, sendRequestPixa, sendRequestOpen, loading, saveFav} from '../actions';
+import { getValue, sendRequestPixa, sendRequestOpen, loading, saveFav} from '../actions/actions';
 
 // Import Components
-import Header from '../../components/weather/components/header';
+import Header from '../../components/Weather/components/Header';
 
 const mapStateToProps = ( state ) => ({
     value: state.input.value,

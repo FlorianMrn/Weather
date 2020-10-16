@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
 // Import Actions
-import { getJson, getPhoto } from '../actions';
+import { getJson, getPhoto } from '../actions/actions';
 
 // Import Components
-import WeatherMain from '../../components/weather/components/weatherMain';
+import WeatherMain from '../../components/Weather/components/WeatherMain';
 
 const mapStateToProps = ( state ) => ({
     infos: state.weather.infos

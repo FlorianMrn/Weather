@@ -1,4 +1,4 @@
-import { GET_JSON, GET_PHOTO, LOADING} from '../actionsTypes';
+import { GET_JSON, GET_PHOTO, LOADING} from '../actions/actionsTypes';
 
 // Local Import
 import test from '../../assets/json/test.json';

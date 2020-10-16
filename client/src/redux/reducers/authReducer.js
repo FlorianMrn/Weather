@@ -1,4 +1,4 @@
-import { GET_ERRORS, SET_CURRENT_USER, LOADING_AUTH, MESSAGE } from '../actionsTypes';
+import { GET_ERRORS, SET_CURRENT_USER, LOADING_AUTH, MESSAGE } from '../actions/actionsTypes';
 
 
 const initialState = {

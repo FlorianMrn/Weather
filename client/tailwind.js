@@ -647,6 +647,7 @@ module.exports = {
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
       scale: 'scale 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+      slide: 'slide 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
     },
     keyframes: {
       spin: {
@@ -680,6 +681,16 @@ module.exports = {
           transformOrigin: '0% 50%',
           opacity: '1',
           width: '100%',
+        }
+      },
+      slide: {
+        '0%' : {
+          transform: 'translateY(1000px)',
+          opacity: '0',
+        },
+        '100%' : {
+          transform: 'translateY(0)',
+          opacity: '1',
         }
       }
     },

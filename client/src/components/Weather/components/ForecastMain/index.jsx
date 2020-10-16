@@ -2,13 +2,13 @@ import * as React from 'react';
 
 const ForecastMain = ({ infos }) => {
 
-    const date = infos.list[0].dt_txt.slice(0, 10).split('-').reverse().join('-');
+    const date = infos.list[0].dt_txt.slice(0, 10).split('-').reverse().join('/');
     const NextHoursData =  infos.list.slice(0, 5);
     const nextDaysData = infos.list.slice(5);
 
     return (
-        <section className="h-calc w-full bg-white pt-12 px-5 relative overflow-hidden">
-            <article className="w-full">
+        <section className="h-calc w-full bg-white pt-12 sm:px-2 lg:px-5 relative overflow-hidden">
+            <article className="w-full px-2">
                 <div className="flex justify-between mb-6 font-bold">
                     <p>Aujourd'hui</p>
                     <p>{date}</p>
@@ -25,13 +25,15 @@ const ForecastMain = ({ infos }) => {
                     })}
                 </div>
             </article>
-            <article className="w-full h-full overflow-y-scroll flex flex-col p-3">
-                    {nextDaysData.map((next) => {
+            <article className="w-full h-full overflow-y-scroll flex flex-col px-2">
+                    {nextDaysData.map((next, index) => {
+                        const startDay = parseInt(next.dt_txt.slice(10).split(':').slice(0, 1).join(''));
+                        console.log(next.dt_txt.slice(5, 10))
                         return (
-                            <div className="w-full h-20 my-2 flex justify-between border-b-2 pb-2" key={next.dt}>
+                            <div className="w-full h-20 flex justify-between items-center border-t-2 py-3" key={next.dt}>
                                 <div className ="flex flex-col justify-center items-center">
-                                    <p className="font-bold">{next.dt_txt.slice(0, 10).split('-').reverse().join('-')}</p>
-                                    <p className="italic">{next.dt_txt.slice(10).split(':').slice(0, 2).join(':')}</p>
+                                    <p className={(startDay === 0 || index === 0) ? "font-bold" : ""}>{next.dt_txt.slice(5, 10).split('-').reverse().join('/')}</p>
+                                    <p className="italic text-orange-500 font-bold">{next.dt_txt.slice(10).split(':').slice(0, 2).join(':')}</p>
                                 </div>
                                 <div className="box-border h-12 w-48 flex justify-center items-center">
                                     <img src={`http://openweathermap.org/img/wn/${next.weather[0].icon}@2x.png`} alt="weather" className="h12 w-12"/>

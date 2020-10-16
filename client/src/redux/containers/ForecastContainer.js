@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // Import Actions
 
 // Import Components
-import ForecastMain from '../../components/weather/components/forecastMain';
+import ForecastMain from '../../components/Weather/components/ForecastMain';
 
 const mapStateToProps = ( state ) => ({
     infos: state.weather.infos

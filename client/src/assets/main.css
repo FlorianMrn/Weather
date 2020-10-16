@@ -19045,6 +19045,18 @@ video {
   }
 }
 
+@keyframes slide {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .animate-none {
   animation: none;
 }
@@ -19067,6 +19079,10 @@ video {
 
 .animate-scale {
   animation: scale 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.animate-slide {
+  animation: slide 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 @media (min-width: 640px) {
@@ -37513,6 +37529,10 @@ video {
 
   .sm\:animate-scale {
     animation: scale 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  .sm\:animate-slide {
+    animation: slide 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
 }
 
@@ -55961,6 +55981,10 @@ video {
   .md\:animate-scale {
     animation: scale 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
+
+  .md\:animate-slide {
+    animation: slide 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -74408,6 +74432,10 @@ video {
   .lg\:animate-scale {
     animation: scale 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
+
+  .lg\:animate-slide {
+    animation: slide 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -92854,5 +92882,9 @@ video {
 
   .xl\:animate-scale {
     animation: scale 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  .xl\:animate-slide {
+    animation: slide 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
 }

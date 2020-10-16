@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 // Import actions
-import { loadingAuth, register, login, sendDeleteData, disconnect, getFavs, getValue, sendRequestPixa, sendRequestOpen, loading} from '../actions';
+import { loadingAuth, register, login, sendDeleteData, disconnect, getFavs, getValue, sendRequestPixa, sendRequestOpen, loading} from '../actions/actions';
 
 // Import Local
-import { Nav } from '../../components/weather/components/header/Auth/Nav';
+import { Nav } from '../../components/Weather/components/Header/Burger/Auth/Nav';
 
 const mapStateToProps = ( state ) => ({
     isAuthenticated : state.auth.isAuthenticated,

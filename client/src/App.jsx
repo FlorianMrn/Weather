@@ -2,7 +2,7 @@ import React from 'react';
 
 
 // Import
-import Weather from "../src/redux/containers/weatherAppContainer";
+import Weather from "./redux/containers/weatherAppContainer";
 
 function App() {
   return (
