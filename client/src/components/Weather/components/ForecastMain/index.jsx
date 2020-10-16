@@ -25,7 +25,7 @@ const ForecastMain = ({ infos }) => {
                     })}
                 </div>
             </article>
-            <article className="w-full h-full overflow-y-scroll flex flex-col px-2">
+            <article className="w-full h-full overflow-y-scroll flex flex-col px-1">
                     {nextDaysData.map((next, index) => {
                         const startDay = parseInt(next.dt_txt.slice(10).split(':').slice(0, 1).join(''));
                         console.log(next.dt_txt.slice(5, 10))
