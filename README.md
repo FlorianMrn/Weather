@@ -1,4 +1,4 @@
-# api-weather
+# Weather
 
 Création d'une application de météo en utilisant plusieurs stacks Front (React, Redux, Axios, Tailwind) et Back (Node, Express, MongoDB, Mongoose).
 
