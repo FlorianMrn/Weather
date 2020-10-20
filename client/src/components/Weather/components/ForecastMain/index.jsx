@@ -28,12 +28,11 @@ const ForecastMain = ({ infos }) => {
             <article className="w-full h-full overflow-y-scroll flex flex-col px-1">
                     {nextDaysData.map((next, index) => {
                         const startDay = parseInt(next.dt_txt.slice(10).split(':').slice(0, 1).join(''));
-                        console.log(next.dt_txt.slice(5, 10))
                         return (
                             <div className="w-full h-20 flex justify-between items-center border-t-2 py-3" key={next.dt}>
                                 <div className ="flex flex-col justify-center items-center">
                                     <p className={(startDay === 0 || index === 0) ? "font-bold" : ""}>{next.dt_txt.slice(5, 10).split('-').reverse().join('/')}</p>
-                                    <p className="italic text-orange-500 font-bold">{next.dt_txt.slice(10).split(':').slice(0, 2).join(':')}</p>
+                                    <p className="italic text-orange-500">{next.dt_txt.slice(10).split(':').slice(0, 2).join(':')}</p>
                                 </div>
                                 <div className="box-border h-12 w-48 flex justify-center items-center">
                                     <img src={`http://openweathermap.org/img/wn/${next.weather[0].icon}@2x.png`} alt="weather" className="h12 w-12"/>
