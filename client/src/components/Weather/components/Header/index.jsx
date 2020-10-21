@@ -37,9 +37,9 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isA
     const handleSave = (e) => {
         setSuccess("");
 
-        if(favs.find((el) => el.name === value)) {
+        if(value === "") {
             setError("Ville déjà enregistrée");
-        } else if(value === "") {
+        } else if(favs.find((el) => el.name === value )) {
             setError("Ville requise");
         } else if (value !== "") {
             saveFav();
@@ -59,6 +59,7 @@ const Header = ({value, getValue, sendRequestPixa, sendRequestOpen, loading, isA
             <form onSubmit={handleSubmit} className="w-auto h-auto p-4 flex justify-center items-center" >
                 <Autocomplete
                     style={{width: '90%'}}
+                    className="p-1 rounded focus:bg-orange-500 outline-none"
                     value={value}
                     onChange={handleChange}
                     onPlaceSelected={(place) => {
