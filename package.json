@@ -1,0 +1,14 @@
+{
+  "name": "Weather",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/FlorianMrn/api-weather.git",
+  "author": "Florian Merrien <fmerrien.dev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+
+    "dev" :"concurrently \"cd client && yarn start\" \"cd server && yarn dev\""
+  }
+
+}
+
